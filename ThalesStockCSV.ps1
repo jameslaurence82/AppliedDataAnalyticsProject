@@ -8,6 +8,8 @@
 ######## Thales Stock Prices: ##########
 ########################################
 
+# Yahoo Finances uses UNIX timestamp in the URL for dates
+#########################################################
 # Thales France Stock Prices
 Write-Host "https://query1.finance.yahoo.com/v7/finance/download/HO.PA?period1=978307200&period2=1704424699&interval=1d&events=history&includeAdjustedClose=true"
 
@@ -24,6 +26,9 @@ $THdata | Export-Csv -Path "E:/5-Data Analytics Winter 2024/DBAS3090 - Applied D
 ######### Market Indicators: ###########
 ########################################
 
+# Yahoo Finances uses UNIX timestamp in the URL for dates
+#########################################################
+
 # France Stock Market Indicator (CAC 40)
 
 Write-Host "https://query1.finance.yahoo.com/v7/finance/download/%5EFCHI?period1=978307200&period2=1704424699&interval=1d&events=history&includeAdjustedClose=true"
@@ -39,6 +44,9 @@ $CACdata | Export-Csv -Path "E:/5-Data Analytics Winter 2024/DBAS3090 - Applied 
 
 # S&P 500 Index (^SPX) >>>>> US Dollars!!!<<<<<<<
 
+# Yahoo Finances uses UNIX timestamp in the URL for dates
+#########################################################
+
 Write-Host "https://query1.finance.yahoo.com/v7/finance/download/%5ESPX?period1=978307200&period2=1704424699&interval=1d&events=history&includeAdjustedClose=true"
 
 # Fetch the data
@@ -50,18 +58,18 @@ $SPdata = $response3.Content | ConvertFrom-Csv
 # Export the data to a CSV file
 $SPdata | Export-Csv -Path "E:/5-Data Analytics Winter 2024/DBAS3090 - Applied Data Analytics/Project/standard_poor_500_index.csv" -NoTypeInformation
 
-# Dow Jones Industrial Average (^DJI)
+# # Dow Jones Industrial Average (^DJI)  <<<<<<<============ haven't found it yet.
 
-Write-Host "https://stooq.com/q/d/l/?s=^dji&d1=978307200&d2=1704424699&i=d"
+# Write-Host ""
 
-# Fetch the data
-$response4 = Invoke-WebRequest -Uri "https://stooq.com/q/d/l/?s=^dji&d1=978307200&d2=1704424699&i=d"
+# # Fetch the data
+# $response4 = Invoke-WebRequest -Uri ""
 
-# Convert the response content from a CSV string to objects
-$DJIdata = $response4.Content | ConvertFrom-Csv
+# # Convert the response content from a CSV string to objects
+# $DJIdata = $response4.Content | ConvertFrom-Csv
 
-# Export the data to a CSV file
-$DJIdata | Export-Csv -Path "E:/5-Data Analytics Winter 2024/DBAS3090 - Applied Data Analytics/Project/dow_jones_industrial_avg.csv" -NoTypeInformation
+# # Export the data to a CSV file
+# $DJIdata | Export-Csv -Path "E:/5-Data Analytics Winter 2024/DBAS3090 - Applied Data Analytics/Project/dow_jones_industrial_avg.csv" -NoTypeInformation
 
 
 ########################################
