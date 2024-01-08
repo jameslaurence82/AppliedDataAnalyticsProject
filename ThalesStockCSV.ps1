@@ -10,7 +10,8 @@
 
 # Yahoo Finances uses UNIX timestamp in the URL for dates
 #########################################################
-# Thales France Stock Prices
+
+# Thales France Stock Prices (HO.PA) >>>>> EURO!!!<<<<<<<
 Write-Host "https://query1.finance.yahoo.com/v7/finance/download/HO.PA?period1=978307200&period2=1704424699&interval=1d&events=history&includeAdjustedClose=true"
 
 # Fetch the data
@@ -29,7 +30,7 @@ $THdata | Export-Csv -Path "E:/5-Data Analytics Winter 2024/DBAS3090 - Applied D
 # Yahoo Finances uses UNIX timestamp in the URL for dates
 #########################################################
 
-# France Stock Market Indicator (CAC 40)
+# France Stock Market Indicator (CAC 40) >>>>> EURO!!!<<<<<<<
 
 Write-Host "https://query1.finance.yahoo.com/v7/finance/download/%5EFCHI?period1=978307200&period2=1704424699&interval=1d&events=history&includeAdjustedClose=true"
 
@@ -58,6 +59,20 @@ $SPdata = $response3.Content | ConvertFrom-Csv
 # Export the data to a CSV file
 $SPdata | Export-Csv -Path "E:/5-Data Analytics Winter 2024/DBAS3090 - Applied Data Analytics/Project/standard_poor_500_index.csv" -NoTypeInformation
 
+# Yahoo Finances uses UNIX timestamp in the URL for dates
+#########################################################
+
+Write-Host "https://query1.finance.yahoo.com/v7/finance/download/%5EGDAXI?period1=978307200&period2=1704424699&interval=1d&events=history&includeAdjustedClose=true"
+
+# Fetch the data
+$response4 = Invoke-WebRequest -Uri "https://query1.finance.yahoo.com/v7/finance/download/%5EGDAXI?period1=978307200&period2=1704424699&interval=1d&events=history&includeAdjustedClose=true"
+
+# Convert the response content from a CSV string to objects
+$daxdata = $response4.Content | ConvertFrom-Csv
+
+# Export the data to a CSV file
+$daxdata | Export-Csv -Path "E:/5-Data Analytics Winter 2024/DBAS3090 - Applied Data Analytics/Project/euro_union-dax-data.csv" -NoTypeInformation
+
 # # Dow Jones Industrial Average (^DJI)  <<<<<<<============ haven't found it yet.
 
 # Write-Host ""
@@ -76,9 +91,10 @@ $SPdata | Export-Csv -Path "E:/5-Data Analytics Winter 2024/DBAS3090 - Applied D
 ######## Economic Indicators: ##########
 ########################################
 
+# United States Monthly Inflation
 
-# Economic Indicators: Websites of central banks, statistical agencies, and international organizations often provide historical economic data. 
-# For example, the U.S. Federal Reserve’s FRED system has a vast array of economic data.
+# Fetch the data from csv link to export as csv
+# Invoke-WebRequest -Uri "url file location" -OutFile "E:/5-Data Analytics Winter 2024/DBAS3090 - Applied Data Analytics/Project/name_of_csv.csv"
 
 # Sector Performance: Financial news websites and platforms often provide data on sector performance. Additionally, specific industry 
 # publications or databases may have relevant data.
