@@ -30,7 +30,7 @@ $THdata | Export-Csv -Path "E:/5-Data Analytics Winter 2024/DBAS3090 - Applied D
 # Yahoo Finances uses UNIX timestamp in the URL for dates
 #########################################################
 
-# France Stock Market Indicator (CAC 40) >>>>> EURO!!!<<<<<<<
+# France Stock Market Indicator (^FCHI) >>>>> EURO!!!<<<<<<<
 
 Write-Host "https://query1.finance.yahoo.com/v7/finance/download/%5EFCHI?period1=978307200&period2=1704424699&interval=1d&events=history&includeAdjustedClose=true"
 
@@ -62,6 +62,8 @@ $SPdata | Export-Csv -Path "E:/5-Data Analytics Winter 2024/DBAS3090 - Applied D
 # Yahoo Finances uses UNIX timestamp in the URL for dates
 #########################################################
 
+# Euro Stoxx 50 Index >>>>> EURO!!!<<<<<<<
+
 Write-Host "https://query1.finance.yahoo.com/v7/finance/download/%5EGDAXI?period1=978307200&period2=1704424699&interval=1d&events=history&includeAdjustedClose=true"
 
 # Fetch the data
@@ -72,29 +74,3 @@ $daxdata = $response4.Content | ConvertFrom-Csv
 
 # Export the data to a CSV file
 $daxdata | Export-Csv -Path "E:/5-Data Analytics Winter 2024/DBAS3090 - Applied Data Analytics/Project/euro_union-dax-data.csv" -NoTypeInformation
-
-# # Dow Jones Industrial Average (^DJI)  <<<<<<<============ haven't found it yet.
-
-# Write-Host ""
-
-# # Fetch the data
-# $response4 = Invoke-WebRequest -Uri ""
-
-# # Convert the response content from a CSV string to objects
-# $DJIdata = $response4.Content | ConvertFrom-Csv
-
-# # Export the data to a CSV file
-# $DJIdata | Export-Csv -Path "E:/5-Data Analytics Winter 2024/DBAS3090 - Applied Data Analytics/Project/dow_jones_industrial_avg.csv" -NoTypeInformation
-
-
-########################################
-######## Economic Indicators: ##########
-########################################
-
-# United States Monthly Inflation
-
-# Fetch the data from csv link to export as csv
-# Invoke-WebRequest -Uri "url file location" -OutFile "E:/5-Data Analytics Winter 2024/DBAS3090 - Applied Data Analytics/Project/name_of_csv.csv"
-
-# Sector Performance: Financial news websites and platforms often provide data on sector performance. Additionally, specific industry 
-# publications or databases may have relevant data.
