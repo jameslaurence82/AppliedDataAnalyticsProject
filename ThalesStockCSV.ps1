@@ -1,8 +1,8 @@
 # param([string]$DT)
-$DT = '1705017599'
+$DT = '1705320382'
 # Write-Host("The date passed is: " + $DT)
 # period 1 978307200 corresponds to 2000-01-01
-# period 2 1705017599 corresponds to 2021-01-11
+# period 2 1705320382 corresponds to 2021-01-19
 
 ########################################
 ######## Thales Stock Prices: ##########
