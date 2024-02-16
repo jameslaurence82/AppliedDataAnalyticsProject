@@ -1,8 +1,8 @@
 # param([string]$DT)
-$DT = '1705320382'
+$DT = '1708042110'
 # Write-Host("The date passed is: " + $DT)
 # period 1 978307200 corresponds to 2000-01-01
-# period 2 1705320382 corresponds to 2021-01-19
+# period 2 1708042110 corresponds to 2024-02-15
 
 ########################################
 ######## Thales Stock Prices: ##########
@@ -21,7 +21,7 @@ $response1 = Invoke-WebRequest -Uri "https://query1.finance.yahoo.com/v7/finance
 $THdata = $response1.Content | ConvertFrom-Csv
 
 # Export the data to a CSV file
-$THdata | Export-Csv -Path "E:/5-Data Analytics Winter 2024/DBAS3090 - Applied Data Analytics/Project/thales_stock_prices.csv" -NoTypeInformation
+$THdata | Export-Csv -Path "E:/5-Data Analytics Winter 2024/DBAS3090 - Applied Data Analytics/Project/dirtyThales_Stock.csv" -NoTypeInformation
 
 ########################################
 ######### Market Indicators: ###########
@@ -41,7 +41,7 @@ $response2 = Invoke-WebRequest -Uri "https://query1.finance.yahoo.com/v7/finance
 $CACdata = $response2.Content | ConvertFrom-Csv
 
 # Export the data to a CSV file
-$CACdata | Export-Csv -Path "E:/5-Data Analytics Winter 2024/DBAS3090 - Applied Data Analytics/Project/france_stock_market_index.csv" -NoTypeInformation
+$CACdata | Export-Csv -Path "E:/5-Data Analytics Winter 2024/DBAS3090 - Applied Data Analytics/Project/dirtyFRA_Index.csv" -NoTypeInformation
 
 # S&P 500 Index (^SPX) >>>>> US Dollars!!!<<<<<<<
 
@@ -57,7 +57,7 @@ $response3 = Invoke-WebRequest -Uri "https://query1.finance.yahoo.com/v7/finance
 $SPdata = $response3.Content | ConvertFrom-Csv
 
 # Export the data to a CSV file
-$SPdata | Export-Csv -Path "E:/5-Data Analytics Winter 2024/DBAS3090 - Applied Data Analytics/Project/standard_poor_500_index.csv" -NoTypeInformation
+$SPdata | Export-Csv -Path "E:/5-Data Analytics Winter 2024/DBAS3090 - Applied Data Analytics/Project/dirtySP500_INDEX.csv" -NoTypeInformation
 
 # Yahoo Finances uses UNIX timestamp in the URL for dates
 #########################################################
@@ -73,4 +73,4 @@ $response4 = Invoke-WebRequest -Uri "https://query1.finance.yahoo.com/v7/finance
 $daxdata = $response4.Content | ConvertFrom-Csv
 
 # Export the data to a CSV file
-$daxdata | Export-Csv -Path "E:/5-Data Analytics Winter 2024/DBAS3090 - Applied Data Analytics/Project/euro_union-dax-data.csv" -NoTypeInformation
+$daxdata | Export-Csv -Path "E:/5-Data Analytics Winter 2024/DBAS3090 - Applied Data Analytics/Project/dirtyEURO_Index.csv" -NoTypeInformation
