@@ -1,4 +1,4 @@
-﻿<?xml version="1.0"?>
+<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="11/14/2023 5:31:27 PM"
@@ -11,29 +11,17 @@
   DTS:LocaleID="4105"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="52"
-  DTS:VersionGUID="{9E948DFB-0E62-4652-945D-961A7955A6B1}">
+  DTS:VersionBuild="50"
+  DTS:VersionGUID="{925C5402-5CAC-4A98-BC0E-2C825C3EA225}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[MSI.ThalesStockPredictor]"
-      DTS:CreationName="OLEDB"
-      DTS:DTSID="{5ACD6338-EA7B-42A9-9AE2-0565B7CA77DF}"
-      DTS:ObjectName="MSI.ThalesStockPredictor">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectRetryCount="1"
-          DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=MSI;Initial Catalog=ThalesStockPredictor;Provider=SQLOLEDB.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-Package-{5ACD6338-EA7B-42A9-9AE2-0565B7CA77DF}MSI.CovidData_DB;" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[THALES_STOCK]"
+      DTS:refId="Package.ConnectionManagers[CasesCSV]"
       DTS:CreationName="FLATFILE"
-      DTS:Description="Clean Thales Stock CSV"
-      DTS:DTSID="{A5C87622-BC8D-4F75-BF32-2252007E96DB}"
-      DTS:ObjectName="THALES_STOCK">
+      DTS:Description="DownloadCSVforCases"
+      DTS:DTSID="{F6851ED7-ACAD-4CB3-A623-E1801903D3CD}"
+      DTS:ObjectName="CasesCSV">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:Format="Delimited"
@@ -41,65 +29,189 @@
           DTS:HeaderRowDelimiter="_x000D__x000A_"
           DTS:ColumnNamesInFirstDataRow="True"
           DTS:RowDelimiter=""
-          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:TextQualifier="_x0022_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="E:\5-Data Analytics Winter 2024\DBAS3090 - Applied Data Analytics\Project\clean_thales.csv">
+          DTS:ConnectionString="E:\4-Data Analytics Fall 2023\DBAS3019 - Business Data Modelling\ICE\ICE 2\PSAPIDownload\cases.csv">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:DataType="133"
+              DTS:MaximumWidth="5"
+              DTS:DataType="129"
               DTS:TextQualified="True"
-              DTS:ObjectName="Date"
-              DTS:DTSID="{30074BC0-6C85-47F5-A445-1D5779FC62F2}"
+              DTS:ObjectName="name"
+              DTS:DTSID="{CD70AC8F-CB14-4F72-AA35-1D0292618F85}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:DataType="4"
+              DTS:MaximumWidth="30"
+              DTS:DataType="129"
               DTS:TextQualified="True"
-              DTS:ObjectName="Open"
-              DTS:DTSID="{6B9F4678-DBF9-421C-B8BA-E07E8992CB39}"
+              DTS:ObjectName="region"
+              DTS:DTSID="{3FBE3A7F-AA58-4BB6-96BA-E6C22267130A}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:DataType="4"
+              DTS:DataType="135"
               DTS:TextQualified="True"
-              DTS:ObjectName="High"
-              DTS:DTSID="{4CFB0DEB-11A3-4061-82E3-A03E8A62D5EB}"
+              DTS:ObjectName="date"
+              DTS:DTSID="{E7A44228-1868-4BD7-A892-E792818DF575}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:DataType="4"
+              DTS:DataType="20"
               DTS:TextQualified="True"
-              DTS:ObjectName="Low"
-              DTS:DTSID="{19B03B67-713D-4C7C-9425-F40DFA19F3C1}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:DataType="4"
-              DTS:TextQualified="True"
-              DTS:ObjectName="Close"
-              DTS:DTSID="{66C42E87-BDC0-47DC-BDA4-DF239D67278B}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:DataType="4"
-              DTS:TextQualified="True"
-              DTS:ObjectName="Adj Close"
-              DTS:DTSID="{381EB2E3-C66C-4EF5-99B0-EF0DA0599756}"
+              DTS:ObjectName="value"
+              DTS:DTSID="{FC250584-EA65-45D2-B755-E8DED2F746FA}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x000D__x000A_"
-              DTS:DataType="3"
+              DTS:DataType="20"
               DTS:TextQualified="True"
-              DTS:ObjectName="Volume"
-              DTS:DTSID="{7AA51591-6AEA-4E15-825F-4D431D73E76E}"
+              DTS:ObjectName="value_daily"
+              DTS:DTSID="{C23F7BA5-0822-4A68-8C60-88A9149CEAE3}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DeathCSV]"
+      DTS:CreationName="FLATFILE"
+      DTS:Description="Death CSV Import"
+      DTS:DTSID="{3B44ED98-F874-4D04-BBB1-91A9E1B30584}"
+      DTS:ObjectName="DeathCSV">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="4105"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x0022_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="E:\4-Data Analytics Fall 2023\DBAS3019 - Business Data Modelling\ICE\ICE 2\PSAPIDownload\deaths.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="name"
+              DTS:DTSID="{F096E08D-1A61-4A3E-84DD-C8B60DF3EFAB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="30"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="region"
+              DTS:DTSID="{8B01D744-C2C0-41EE-93FA-F90BE65C3B2E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="135"
+              DTS:TextQualified="True"
+              DTS:ObjectName="date"
+              DTS:DTSID="{EB412C98-4AF9-499B-B744-F53C1DB6FAD0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="20"
+              DTS:TextQualified="True"
+              DTS:ObjectName="value"
+              DTS:DTSID="{2540E416-E3FD-4EEF-84D4-521CDB2478C4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="20"
+              DTS:TextQualified="True"
+              DTS:ObjectName="value_daily"
+              DTS:DTSID="{98D18E20-798C-426B-AE7C-8DFD1EA04BB9}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[MSI.CovidData_DB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{5ACD6338-EA7B-42A9-9AE2-0565B7CA77DF}"
+      DTS:ObjectName="MSI.CovidData_DB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=MSI;Initial Catalog=CovidData_DB;Provider=SQLOLEDB.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-Package-{5ACD6338-EA7B-42A9-9AE2-0565B7CA77DF}MSI.CovidData_DB;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[VaccineCSV]"
+      DTS:CreationName="FLATFILE"
+      DTS:Description="VaccineCSVImport"
+      DTS:DTSID="{E171E1FB-34DA-4A79-950A-95BE37D6A82A}"
+      DTS:ObjectName="VaccineCSV">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="4105"
+          DTS:HeaderRowDelimiter="_x002C_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x0022_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="E:\4-Data Analytics Fall 2023\DBAS3019 - Business Data Modelling\ICE\ICE 2\PSAPIDownload\vaccine.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="29"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="name"
+              DTS:DTSID="{1436D478-6739-4195-B505-75300D8E2D00}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="30"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="region"
+              DTS:DTSID="{068A9AB3-3F3C-4F12-909A-B4D9E2496B9B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="135"
+              DTS:TextQualified="True"
+              DTS:ObjectName="date"
+              DTS:DTSID="{AAD0AFE8-28EE-4DB4-BAF7-778FD9F021B6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="20"
+              DTS:TextQualified="True"
+              DTS:ObjectName="value"
+              DTS:DTSID="{5809B1E7-0A50-4074-81FD-DAE1A43EC478}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="20"
+              DTS:TextQualified="True"
+              DTS:ObjectName="value_daily"
+              DTS:DTSID="{47F8E245-6EDB-4542-8D13-63B3CCF23B2D}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -198,7 +310,7 @@ where [refTable].[Cases_Province_FK] = ? and [refTable].[Cases_Date] = ? and [re
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Data Flow Task\65:invalid};#{Package\Data Flow Task\68:invalid};#{Package\Data Flow Task\71:invalid};</property>
+                  name="ParameterMap">#{Package\Data Flow Task\CasesCSV.Outputs[Flat File Source Output].Columns[Cases_Province_FK]};#{Package\Data Flow Task\CasesCSV.Outputs[Flat File Source Output].Columns[Cases_Date]};#{Package\Data Flow Task\CasesCSV.Outputs[Flat File Source Output].Columns[Cases_Cumulative]};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -211,8 +323,8 @@ where [refTable].[Cases_Province_FK] = ? and [refTable].[Cases_Date] = ? and [re
               <connections>
                 <connection
                   refId="Package\Data Flow Task\100 day Lookup.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[MSI.ThalesStockPredictor]"
-                  connectionManagerRefId="Package.ConnectionManagers[MSI.ThalesStockPredictor]"
+                  connectionManagerID="Package.ConnectionManagers[MSI.CovidData_DB]"
+                  connectionManagerRefId="Package.ConnectionManagers[MSI.CovidData_DB]"
                   description="Connection manager used to access lookup data."
                   name="OleDbConnection" />
               </connections>
@@ -227,7 +339,7 @@ where [refTable].[Cases_Province_FK] = ? and [refTable].[Cases_Date] = ? and [re
                       cachedDataType="str"
                       cachedLength="30"
                       cachedName="Cases_Province_FK"
-                      lineageId="Package\Data Flow Task\65:invalid">
+                      lineageId="Package\Data Flow Task\CasesCSV.Outputs[Flat File Source Output].Columns[Cases_Province_FK]">
                       <properties>
                         <property
                           dataType="System.String"
@@ -243,7 +355,7 @@ where [refTable].[Cases_Province_FK] = ? and [refTable].[Cases_Date] = ? and [re
                       refId="Package\Data Flow Task\100 day Lookup.Inputs[Lookup Input].Columns[Cases_Date]"
                       cachedDataType="dbTimeStamp"
                       cachedName="Cases_Date"
-                      lineageId="Package\Data Flow Task\68:invalid">
+                      lineageId="Package\Data Flow Task\CasesCSV.Outputs[Flat File Source Output].Columns[Cases_Date]">
                       <properties>
                         <property
                           dataType="System.String"
@@ -259,7 +371,7 @@ where [refTable].[Cases_Province_FK] = ? and [refTable].[Cases_Date] = ? and [re
                       refId="Package\Data Flow Task\100 day Lookup.Inputs[Lookup Input].Columns[Cases_Cumulative]"
                       cachedDataType="i8"
                       cachedName="Cases_Cumulative"
-                      lineageId="Package\Data Flow Task\71:invalid">
+                      lineageId="Package\Data Flow Task\CasesCSV.Outputs[Flat File Source Output].Columns[Cases_Cumulative]">
                       <properties>
                         <property
                           dataType="System.String"
@@ -386,8 +498,8 @@ where [refTable].[Mortality_Province_FK] = ? and [refTable].[Mortality_Date] = ?
               <connections>
                 <connection
                   refId="Package\Data Flow Task\100 Day Lookup.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[MSI.ThalesStockPredictor]"
-                  connectionManagerRefId="Package.ConnectionManagers[MSI.ThalesStockPredictor]"
+                  connectionManagerID="Package.ConnectionManagers[MSI.CovidData_DB]"
+                  connectionManagerRefId="Package.ConnectionManagers[MSI.CovidData_DB]"
                   description="Connection manager used to access lookup data."
                   name="OleDbConnection" />
               </connections>
@@ -492,6 +604,157 @@ where [refTable].[Mortality_Province_FK] = ? and [refTable].[Mortality_Date] = ?
               </outputs>
             </component>
             <component
+              refId="Package\Data Flow Task\CasesCSV"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="CasesCSVImport"
+              localeId="4105"
+              name="CasesCSV"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\CasesCSV.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[CasesCSV]"
+                  connectionManagerRefId="Package.ConnectionManagers[CasesCSV]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\CasesCSV.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\CasesCSV.Outputs[Flat File Source Output].Columns[Cases_Province_FK]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\CasesCSV.Outputs[Flat File Source Output].ExternalColumns[region]"
+                      length="30"
+                      lineageId="Package\Data Flow Task\CasesCSV.Outputs[Flat File Source Output].Columns[Cases_Province_FK]"
+                      name="Cases_Province_FK"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\CasesCSV.Outputs[Flat File Source Output].Columns[Cases_Date]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\CasesCSV.Outputs[Flat File Source Output].ExternalColumns[date]"
+                      lineageId="Package\Data Flow Task\CasesCSV.Outputs[Flat File Source Output].Columns[Cases_Date]"
+                      name="Cases_Date"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\CasesCSV.Outputs[Flat File Source Output].Columns[Cases_Cumulative]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\CasesCSV.Outputs[Flat File Source Output].ExternalColumns[value]"
+                      lineageId="Package\Data Flow Task\CasesCSV.Outputs[Flat File Source Output].Columns[Cases_Cumulative]"
+                      name="Cases_Cumulative"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\CasesCSV.Outputs[Flat File Source Output].ExternalColumns[name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="name" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\CasesCSV.Outputs[Flat File Source Output].ExternalColumns[region]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="region" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\CasesCSV.Outputs[Flat File Source Output].ExternalColumns[date]"
+                      dataType="dbTimeStamp"
+                      name="date" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\CasesCSV.Outputs[Flat File Source Output].ExternalColumns[value]"
+                      dataType="i8"
+                      name="value" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\CasesCSV.Outputs[Flat File Source Output].ExternalColumns[value_daily]"
+                      dataType="i8"
+                      name="value_daily" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\CasesCSV.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\CasesCSV.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Data Flow Task\CasesCSV.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\CasesCSV.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\CasesCSV.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\CasesCSV.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\CasesCSV.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\Data Flow Task\CasesLookup"
               componentClassID="Microsoft.Lookup"
               contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
@@ -548,7 +811,7 @@ where [refTable].[Cases_Province_FK] = ? and [refTable].[Cases_Date] = ?</proper
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Data Flow Task\65:invalid};#{Package\Data Flow Task\68:invalid};</property>
+                  name="ParameterMap">#{Package\Data Flow Task\CasesCSV.Outputs[Flat File Source Output].Columns[Cases_Province_FK]};#{Package\Data Flow Task\CasesCSV.Outputs[Flat File Source Output].Columns[Cases_Date]};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -561,8 +824,8 @@ where [refTable].[Cases_Province_FK] = ? and [refTable].[Cases_Date] = ?</proper
               <connections>
                 <connection
                   refId="Package\Data Flow Task\CasesLookup.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[MSI.ThalesStockPredictor]"
-                  connectionManagerRefId="Package.ConnectionManagers[MSI.ThalesStockPredictor]"
+                  connectionManagerID="Package.ConnectionManagers[MSI.CovidData_DB]"
+                  connectionManagerRefId="Package.ConnectionManagers[MSI.CovidData_DB]"
                   description="Connection manager used to access lookup data."
                   name="OleDbConnection" />
               </connections>
@@ -577,7 +840,7 @@ where [refTable].[Cases_Province_FK] = ? and [refTable].[Cases_Date] = ?</proper
                       cachedDataType="str"
                       cachedLength="30"
                       cachedName="Cases_Province_FK"
-                      lineageId="Package\Data Flow Task\65:invalid">
+                      lineageId="Package\Data Flow Task\CasesCSV.Outputs[Flat File Source Output].Columns[Cases_Province_FK]">
                       <properties>
                         <property
                           dataType="System.String"
@@ -593,7 +856,7 @@ where [refTable].[Cases_Province_FK] = ? and [refTable].[Cases_Date] = ?</proper
                       refId="Package\Data Flow Task\CasesLookup.Inputs[Lookup Input].Columns[Cases_Date]"
                       cachedDataType="dbTimeStamp"
                       cachedName="Cases_Date"
-                      lineageId="Package\Data Flow Task\68:invalid">
+                      lineageId="Package\Data Flow Task\CasesCSV.Outputs[Flat File Source Output].Columns[Cases_Date]">
                       <properties>
                         <property
                           dataType="System.String"
@@ -672,8 +935,8 @@ where [refTable].[Cases_Province_FK] = ? and [refTable].[Cases_Date] = ?</proper
               <connections>
                 <connection
                   refId="Package\Data Flow Task\DeathCSV.Connections[FlatFileConnection]"
-                  connectionManagerID="{3B44ED98-F874-4D04-BBB1-91A9E1B30584}:invalid"
-                  connectionManagerRefId="{3B44ED98-F874-4D04-BBB1-91A9E1B30584}:invalid"
+                  connectionManagerID="Package.ConnectionManagers[DeathCSV]"
+                  connectionManagerRefId="Package.ConnectionManagers[DeathCSV]"
                   name="FlatFileConnection" />
               </connections>
               <outputs>
@@ -871,8 +1134,8 @@ where [refTable].[Mortality_Province_FK] = ? and [refTable].[Mortality_Date] = ?
               <connections>
                 <connection
                   refId="Package\Data Flow Task\DeathLookup.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[MSI.ThalesStockPredictor]"
-                  connectionManagerRefId="Package.ConnectionManagers[MSI.ThalesStockPredictor]"
+                  connectionManagerID="Package.ConnectionManagers[MSI.CovidData_DB]"
+                  connectionManagerRefId="Package.ConnectionManagers[MSI.CovidData_DB]"
                   description="Connection manager used to access lookup data."
                   name="OleDbConnection" />
               </connections>
@@ -1019,8 +1282,8 @@ where [refTable].[Mortality_Province_FK] = ? and [refTable].[Mortality_Date] = ?
               <connections>
                 <connection
                   refId="Package\Data Flow Task\Insert Cases Data Table.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[MSI.ThalesStockPredictor]"
-                  connectionManagerRefId="Package.ConnectionManagers[MSI.ThalesStockPredictor]"
+                  connectionManagerID="Package.ConnectionManagers[MSI.CovidData_DB]"
+                  connectionManagerRefId="Package.ConnectionManagers[MSI.CovidData_DB]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1037,7 +1300,7 @@ where [refTable].[Mortality_Province_FK] = ? and [refTable].[Mortality_Date] = ?
                       cachedDataType="i8"
                       cachedName="Cases_Cumulative"
                       externalMetadataColumnId="Package\Data Flow Task\Insert Cases Data Table.Inputs[OLE DB Destination Input].ExternalColumns[Cases_Cumulative]"
-                      lineageId="Package\Data Flow Task\71:invalid" />
+                      lineageId="Package\Data Flow Task\CasesCSV.Outputs[Flat File Source Output].Columns[Cases_Cumulative]" />
                     <inputColumn
                       refId="Package\Data Flow Task\Insert Cases Data Table.Inputs[OLE DB Destination Input].Columns[Cases_Province_FK]"
                       cachedCodepage="1252"
@@ -1045,13 +1308,13 @@ where [refTable].[Mortality_Province_FK] = ? and [refTable].[Mortality_Date] = ?
                       cachedLength="30"
                       cachedName="Cases_Province_FK"
                       externalMetadataColumnId="Package\Data Flow Task\Insert Cases Data Table.Inputs[OLE DB Destination Input].ExternalColumns[Cases_Province_FK]"
-                      lineageId="Package\Data Flow Task\65:invalid" />
+                      lineageId="Package\Data Flow Task\CasesCSV.Outputs[Flat File Source Output].Columns[Cases_Province_FK]" />
                     <inputColumn
                       refId="Package\Data Flow Task\Insert Cases Data Table.Inputs[OLE DB Destination Input].Columns[Cases_Date]"
                       cachedDataType="dbTimeStamp"
                       cachedName="Cases_Date"
                       externalMetadataColumnId="Package\Data Flow Task\Insert Cases Data Table.Inputs[OLE DB Destination Input].ExternalColumns[Cases_Date]"
-                      lineageId="Package\Data Flow Task\68:invalid" />
+                      lineageId="Package\Data Flow Task\CasesCSV.Outputs[Flat File Source Output].Columns[Cases_Date]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1156,8 +1419,8 @@ where [refTable].[Mortality_Province_FK] = ? and [refTable].[Mortality_Date] = ?
               <connections>
                 <connection
                   refId="Package\Data Flow Task\Insert Death Data Table.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[MSI.ThalesStockPredictor]"
-                  connectionManagerRefId="Package.ConnectionManagers[MSI.ThalesStockPredictor]"
+                  connectionManagerID="Package.ConnectionManagers[MSI.CovidData_DB]"
+                  connectionManagerRefId="Package.ConnectionManagers[MSI.CovidData_DB]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1293,8 +1556,8 @@ where [refTable].[Mortality_Province_FK] = ? and [refTable].[Mortality_Date] = ?
               <connections>
                 <connection
                   refId="Package\Data Flow Task\Insert Vaccines Data Table.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[MSI.ThalesStockPredictor]"
-                  connectionManagerRefId="Package.ConnectionManagers[MSI.ThalesStockPredictor]"
+                  connectionManagerID="Package.ConnectionManagers[MSI.CovidData_DB]"
+                  connectionManagerRefId="Package.ConnectionManagers[MSI.CovidData_DB]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1441,8 +1704,8 @@ where [refTable].[Vaccines_Province_FK] = ? and [refTable].[Vaccines_Date] = ? a
               <connections>
                 <connection
                   refId="Package\Data Flow Task\Lookup.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[MSI.ThalesStockPredictor]"
-                  connectionManagerRefId="Package.ConnectionManagers[MSI.ThalesStockPredictor]"
+                  connectionManagerID="Package.ConnectionManagers[MSI.CovidData_DB]"
+                  connectionManagerRefId="Package.ConnectionManagers[MSI.CovidData_DB]"
                   description="Connection manager used to access lookup data."
                   name="OleDbConnection" />
               </connections>
@@ -1547,239 +1810,6 @@ where [refTable].[Vaccines_Province_FK] = ? and [refTable].[Vaccines_Date] = ? a
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task\Thales_Stock"
-              componentClassID="Microsoft.FlatFileSource"
-              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
-              description="CasesCSVImport"
-              localeId="4105"
-              name="Thales_Stock"
-              usesDispositions="true"
-              version="1">
-              <properties>
-                <property
-                  dataType="System.Boolean"
-                  description="Specifies whether zero-length columns are treated as null."
-                  name="RetainNulls">false</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
-                  name="FileNameColumnName"></property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Data Flow Task\Thales_Stock.Connections[FlatFileConnection]"
-                  connectionManagerID="Package.ConnectionManagers[THALES_STOCK]"
-                  connectionManagerRefId="Package.ConnectionManagers[THALES_STOCK]"
-                  name="FlatFileConnection" />
-              </connections>
-              <outputs>
-                <output
-                  refId="Package\Data Flow Task\Thales_Stock.Outputs[Flat File Source Output]"
-                  name="Flat File Source Output">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Data Flow Task\Thales_Stock.Outputs[Flat File Source Output].Columns[Date]"
-                      dataType="date"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Thales_Stock.Outputs[Flat File Source Output].ExternalColumns[Date]"
-                      lineageId="Package\Data Flow Task\Thales_Stock.Outputs[Flat File Source Output].Columns[Date]"
-                      name="Date"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the data is in binary format."
-                          name="UseBinaryFormat">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task\Thales_Stock.Outputs[Flat File Source Output].Columns[Open]"
-                      dataType="r4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Thales_Stock.Outputs[Flat File Source Output].ExternalColumns[Open]"
-                      lineageId="Package\Data Flow Task\Thales_Stock.Outputs[Flat File Source Output].Columns[Open]"
-                      name="Open"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the data is in binary format."
-                          name="UseBinaryFormat">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task\Thales_Stock.Outputs[Flat File Source Output].Columns[High]"
-                      dataType="r4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Thales_Stock.Outputs[Flat File Source Output].ExternalColumns[High]"
-                      lineageId="Package\Data Flow Task\Thales_Stock.Outputs[Flat File Source Output].Columns[High]"
-                      name="High"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the data is in binary format."
-                          name="UseBinaryFormat">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task\Thales_Stock.Outputs[Flat File Source Output].Columns[Low]"
-                      dataType="r4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Thales_Stock.Outputs[Flat File Source Output].ExternalColumns[Low]"
-                      lineageId="Package\Data Flow Task\Thales_Stock.Outputs[Flat File Source Output].Columns[Low]"
-                      name="Low"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the data is in binary format."
-                          name="UseBinaryFormat">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task\Thales_Stock.Outputs[Flat File Source Output].Columns[Close]"
-                      dataType="r4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Thales_Stock.Outputs[Flat File Source Output].ExternalColumns[Close]"
-                      lineageId="Package\Data Flow Task\Thales_Stock.Outputs[Flat File Source Output].Columns[Close]"
-                      name="Close"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the data is in binary format."
-                          name="UseBinaryFormat">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task\Thales_Stock.Outputs[Flat File Source Output].Columns[Adj Close]"
-                      dataType="r4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Thales_Stock.Outputs[Flat File Source Output].ExternalColumns[Adj Close]"
-                      lineageId="Package\Data Flow Task\Thales_Stock.Outputs[Flat File Source Output].Columns[Adj Close]"
-                      name="Adj Close"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the data is in binary format."
-                          name="UseBinaryFormat">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task\Thales_Stock.Outputs[Flat File Source Output].Columns[Volume]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Thales_Stock.Outputs[Flat File Source Output].ExternalColumns[Volume]"
-                      lineageId="Package\Data Flow Task\Thales_Stock.Outputs[Flat File Source Output].Columns[Volume]"
-                      name="Volume"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the data is in binary format."
-                          name="UseBinaryFormat">false</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Thales_Stock.Outputs[Flat File Source Output].ExternalColumns[Date]"
-                      dataType="date"
-                      name="Date" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Thales_Stock.Outputs[Flat File Source Output].ExternalColumns[Open]"
-                      dataType="r4"
-                      name="Open" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Thales_Stock.Outputs[Flat File Source Output].ExternalColumns[High]"
-                      dataType="r4"
-                      name="High" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Thales_Stock.Outputs[Flat File Source Output].ExternalColumns[Low]"
-                      dataType="r4"
-                      name="Low" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Thales_Stock.Outputs[Flat File Source Output].ExternalColumns[Close]"
-                      dataType="r4"
-                      name="Close" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Thales_Stock.Outputs[Flat File Source Output].ExternalColumns[Adj Close]"
-                      dataType="r4"
-                      name="Adj Close" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Thales_Stock.Outputs[Flat File Source Output].ExternalColumns[Volume]"
-                      dataType="i4"
-                      name="Volume" />
-                  </externalMetadataColumns>
-                </output>
-                <output
-                  refId="Package\Data Flow Task\Thales_Stock.Outputs[Flat File Source Error Output]"
-                  isErrorOut="true"
-                  name="Flat File Source Error Output">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Data Flow Task\Thales_Stock.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
-                      codePage="1252"
-                      dataType="text"
-                      description="Flat File Source Error Output Column"
-                      lineageId="Package\Data Flow Task\Thales_Stock.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
-                      name="Flat File Source Error Output Column" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\Thales_Stock.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Data Flow Task\Thales_Stock.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\Thales_Stock.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Data Flow Task\Thales_Stock.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
               refId="Package\Data Flow Task\Update Cases Table"
               componentClassID="Microsoft.OLEDBCommand"
               contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
@@ -1810,8 +1840,8 @@ Where ([Cases_Province_FK]=? AND [Cases_Date]=?)</property>
               <connections>
                 <connection
                   refId="Package\Data Flow Task\Update Cases Table.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[MSI.ThalesStockPredictor]"
-                  connectionManagerRefId="Package.ConnectionManagers[MSI.ThalesStockPredictor]"
+                  connectionManagerID="Package.ConnectionManagers[MSI.CovidData_DB]"
+                  connectionManagerRefId="Package.ConnectionManagers[MSI.CovidData_DB]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1830,19 +1860,19 @@ Where ([Cases_Province_FK]=? AND [Cases_Date]=?)</property>
                       cachedLength="30"
                       cachedName="Cases_Province_FK"
                       externalMetadataColumnId="Package\Data Flow Task\Update Cases Table.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
-                      lineageId="Package\Data Flow Task\65:invalid" />
+                      lineageId="Package\Data Flow Task\CasesCSV.Outputs[Flat File Source Output].Columns[Cases_Province_FK]" />
                     <inputColumn
                       refId="Package\Data Flow Task\Update Cases Table.Inputs[OLE DB Command Input].Columns[Cases_Cumulative]"
                       cachedDataType="i8"
                       cachedName="Cases_Cumulative"
                       externalMetadataColumnId="Package\Data Flow Task\Update Cases Table.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
-                      lineageId="Package\Data Flow Task\71:invalid" />
+                      lineageId="Package\Data Flow Task\CasesCSV.Outputs[Flat File Source Output].Columns[Cases_Cumulative]" />
                     <inputColumn
                       refId="Package\Data Flow Task\Update Cases Table.Inputs[OLE DB Command Input].Columns[Cases_Date]"
                       cachedDataType="dbTimeStamp"
                       cachedName="Cases_Date"
                       externalMetadataColumnId="Package\Data Flow Task\Update Cases Table.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
-                      lineageId="Package\Data Flow Task\68:invalid" />
+                      lineageId="Package\Data Flow Task\CasesCSV.Outputs[Flat File Source Output].Columns[Cases_Date]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1947,8 +1977,8 @@ Where ([Mortality_Province_FK]=? AND [Mortality_Date]=?)</property>
               <connections>
                 <connection
                   refId="Package\Data Flow Task\Update Mortality Table.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[MSI.ThalesStockPredictor]"
-                  connectionManagerRefId="Package.ConnectionManagers[MSI.ThalesStockPredictor]"
+                  connectionManagerID="Package.ConnectionManagers[MSI.CovidData_DB]"
+                  connectionManagerRefId="Package.ConnectionManagers[MSI.CovidData_DB]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -2084,8 +2114,8 @@ Where ([Vaccines_Province_FK]=? AND [Vaccines_Date]=?)</property>
               <connections>
                 <connection
                   refId="Package\Data Flow Task\Update Vaccines Table.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[MSI.ThalesStockPredictor]"
-                  connectionManagerRefId="Package.ConnectionManagers[MSI.ThalesStockPredictor]"
+                  connectionManagerID="Package.ConnectionManagers[MSI.CovidData_DB]"
+                  connectionManagerRefId="Package.ConnectionManagers[MSI.CovidData_DB]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -2212,8 +2242,8 @@ Where ([Vaccines_Province_FK]=? AND [Vaccines_Date]=?)</property>
               <connections>
                 <connection
                   refId="Package\Data Flow Task\VaccineCSV.Connections[FlatFileConnection]"
-                  connectionManagerID="{E171E1FB-34DA-4A79-950A-95BE37D6A82A}:invalid"
-                  connectionManagerRefId="{E171E1FB-34DA-4A79-950A-95BE37D6A82A}:invalid"
+                  connectionManagerID="Package.ConnectionManagers[VaccineCSV]"
+                  connectionManagerRefId="Package.ConnectionManagers[VaccineCSV]"
                   name="FlatFileConnection" />
               </connections>
               <outputs>
@@ -2411,8 +2441,8 @@ where [refTable].[Vaccines_Province_FK] = ? and [refTable].[Vaccines_Date] = ?</
               <connections>
                 <connection
                   refId="Package\Data Flow Task\VaccineLookup.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[MSI.ThalesStockPredictor]"
-                  connectionManagerRefId="Package.ConnectionManagers[MSI.ThalesStockPredictor]"
+                  connectionManagerID="Package.ConnectionManagers[MSI.CovidData_DB]"
+                  connectionManagerRefId="Package.ConnectionManagers[MSI.CovidData_DB]"
                   description="Connection manager used to access lookup data."
                   name="OleDbConnection" />
               </connections>
@@ -2516,7 +2546,7 @@ where [refTable].[Vaccines_Province_FK] = ? and [refTable].[Vaccines_Date] = ?</
               refId="Package\Data Flow Task.Paths[Flat File Source Output2]"
               endId="Package\Data Flow Task\CasesLookup.Inputs[Lookup Input]"
               name="Flat File Source Output"
-              startId="Package\Data Flow Task\Thales_Stock.Outputs[Flat File Source Output]" />
+              startId="Package\Data Flow Task\CasesCSV.Outputs[Flat File Source Output]" />
             <path
               refId="Package\Data Flow Task.Paths[Lookup Match Output]"
               endId="Package\Data Flow Task\100 day Lookup.Inputs[Lookup Input]"
@@ -2725,8 +2755,8 @@ where [refTable].[Vaccines_Province_FK] = ? and [refTable].[Vaccines_Date] = ?</
           Id="Package\Data Flow Task\Update Vaccines Table"
           TopLeft="1076.66662388378,728.866672459179" />
         <NodeLayout
-          Size="141.6,41.6"
-          Id="Package\Data Flow Task\Thales_Stock"
+          Size="129.6,41.6"
+          Id="Package\Data Flow Task\CasesCSV"
           TopLeft="137.499994536242,194.133334876165" />
         <NodeLayout
           Size="140,41.6"
@@ -2832,7 +2862,7 @@ where [refTable].[Vaccines_Province_FK] = ? and [refTable].[Vaccines_Date] = ?</
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-78.0583715514341,74.072855195347,129.350078125,16"
+              BoundingBox="-69.1897192076842,74.072855195347,111.6127734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -2940,32 +2970,30 @@ where [refTable].[Vaccines_Province_FK] = ? and [refTable].[Vaccines_Date] = ?</
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="4.5232912409305,49.4039783878782,114.120078125,16"
+              BoundingBox="13.3919435846807,49.4039783878782,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[Flat File Source Output2]"
-          TopLeft="207.866661236022,235.733334876165">
+          TopLeft="204.866661236022,235.733334876165">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,247.866668967143"
+              EndConnector="0,247.866668967142"
               Start="0,0"
-              End="0,240.366668967143">
+              End="0,240.366668967142">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,240.366668967143" />
+                    End="0,240.366668967142" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-8,112.183334483571,16,16"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -3092,7 +3120,7 @@ where [refTable].[Vaccines_Province_FK] = ? and [refTable].[Vaccines_Date] = ?</
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-64.6750390625,49.1166673347685,129.350078125,16"
+              BoundingBox="-55.80638671875,51.3119798347686,111.6127734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
