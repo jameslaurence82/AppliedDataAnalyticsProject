@@ -11,8 +11,8 @@
   DTS:LocaleID="4105"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="24"
-  DTS:VersionGUID="{A412F73C-3494-4C38-A282-40A50210CC3C}">
+  DTS:VersionBuild="25"
+  DTS:VersionGUID="{2774AAFB-DAA4-44ED-91A1-2489297B88FE}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -386,13 +386,13 @@ FROM            (SELECT        MIN(dt) AS MinDate
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\Data Flow Task"
+      DTS:refId="Package\ETL Data to DB"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
       DTS:DTSID="{933CF914-ACEB-4348-9DDA-7709D9360393}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Data Flow Task"
+      DTS:ObjectName="ETL Data to DB"
       DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:Variables />
       <DTS:ObjectData>
@@ -400,7 +400,7 @@ FROM            (SELECT        MIN(dt) AS MinDate
           version="1">
           <components>
             <component
-              refId="Package\Data Flow Task\EURO_INDEX"
+              refId="Package\ETL Data to DB\EURO_INDEX"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
               description="OLE DB Destination"
@@ -457,7 +457,7 @@ FROM            (SELECT        MIN(dt) AS MinDate
               </properties>
               <connections>
                 <connection
-                  refId="Package\Data Flow Task\EURO_INDEX.Connections[OleDbConnection]"
+                  refId="Package\ETL Data to DB\EURO_INDEX.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[MSI.ThalesStockPredictor]"
                   connectionManagerRefId="Package.ConnectionManagers[MSI.ThalesStockPredictor]"
                   description="The OLE DB runtime connection used to access the database."
@@ -465,85 +465,85 @@ FROM            (SELECT        MIN(dt) AS MinDate
               </connections>
               <inputs>
                 <input
-                  refId="Package\Data Flow Task\EURO_INDEX.Inputs[OLE DB Destination Input]"
+                  refId="Package\ETL Data to DB\EURO_INDEX.Inputs[OLE DB Destination Input]"
                   errorOrTruncationOperation="Insert"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\EURO_INDEX.Inputs[OLE DB Destination Input].Columns[Date]"
+                      refId="Package\ETL Data to DB\EURO_INDEX.Inputs[OLE DB Destination Input].Columns[Date]"
                       cachedDataType="wstr"
                       cachedLength="50"
                       cachedName="Date"
-                      externalMetadataColumnId="Package\Data Flow Task\EURO_INDEX.Inputs[OLE DB Destination Input].ExternalColumns[FK_DT_Date]"
-                      lineageId="Package\Data Flow Task\Euro_Index_CSV.Outputs[Flat File Source Output].Columns[Date]" />
+                      externalMetadataColumnId="Package\ETL Data to DB\EURO_INDEX.Inputs[OLE DB Destination Input].ExternalColumns[FK_DT_Date]"
+                      lineageId="Package\ETL Data to DB\Euro_Index_CSV.Outputs[Flat File Source Output].Columns[Date]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\EURO_INDEX.Inputs[OLE DB Destination Input].Columns[Open]"
+                      refId="Package\ETL Data to DB\EURO_INDEX.Inputs[OLE DB Destination Input].Columns[Open]"
                       cachedDataType="r4"
                       cachedName="Open"
-                      externalMetadataColumnId="Package\Data Flow Task\EURO_INDEX.Inputs[OLE DB Destination Input].ExternalColumns[EUR_Open]"
-                      lineageId="Package\Data Flow Task\Euro_Index_CSV.Outputs[Flat File Source Output].Columns[Open]" />
+                      externalMetadataColumnId="Package\ETL Data to DB\EURO_INDEX.Inputs[OLE DB Destination Input].ExternalColumns[EUR_Open]"
+                      lineageId="Package\ETL Data to DB\Euro_Index_CSV.Outputs[Flat File Source Output].Columns[Open]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\EURO_INDEX.Inputs[OLE DB Destination Input].Columns[High]"
+                      refId="Package\ETL Data to DB\EURO_INDEX.Inputs[OLE DB Destination Input].Columns[High]"
                       cachedDataType="r4"
                       cachedName="High"
-                      externalMetadataColumnId="Package\Data Flow Task\EURO_INDEX.Inputs[OLE DB Destination Input].ExternalColumns[EUR_High]"
-                      lineageId="Package\Data Flow Task\Euro_Index_CSV.Outputs[Flat File Source Output].Columns[High]" />
+                      externalMetadataColumnId="Package\ETL Data to DB\EURO_INDEX.Inputs[OLE DB Destination Input].ExternalColumns[EUR_High]"
+                      lineageId="Package\ETL Data to DB\Euro_Index_CSV.Outputs[Flat File Source Output].Columns[High]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\EURO_INDEX.Inputs[OLE DB Destination Input].Columns[Low]"
+                      refId="Package\ETL Data to DB\EURO_INDEX.Inputs[OLE DB Destination Input].Columns[Low]"
                       cachedDataType="r4"
                       cachedName="Low"
-                      externalMetadataColumnId="Package\Data Flow Task\EURO_INDEX.Inputs[OLE DB Destination Input].ExternalColumns[EUR_Low]"
-                      lineageId="Package\Data Flow Task\Euro_Index_CSV.Outputs[Flat File Source Output].Columns[Low]" />
+                      externalMetadataColumnId="Package\ETL Data to DB\EURO_INDEX.Inputs[OLE DB Destination Input].ExternalColumns[EUR_Low]"
+                      lineageId="Package\ETL Data to DB\Euro_Index_CSV.Outputs[Flat File Source Output].Columns[Low]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\EURO_INDEX.Inputs[OLE DB Destination Input].Columns[Close]"
+                      refId="Package\ETL Data to DB\EURO_INDEX.Inputs[OLE DB Destination Input].Columns[Close]"
                       cachedDataType="r4"
                       cachedName="Close"
-                      externalMetadataColumnId="Package\Data Flow Task\EURO_INDEX.Inputs[OLE DB Destination Input].ExternalColumns[EUR_Close]"
-                      lineageId="Package\Data Flow Task\Euro_Index_CSV.Outputs[Flat File Source Output].Columns[Close]" />
+                      externalMetadataColumnId="Package\ETL Data to DB\EURO_INDEX.Inputs[OLE DB Destination Input].ExternalColumns[EUR_Close]"
+                      lineageId="Package\ETL Data to DB\Euro_Index_CSV.Outputs[Flat File Source Output].Columns[Close]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\EURO_INDEX.Inputs[OLE DB Destination Input].Columns[Adj Close]"
+                      refId="Package\ETL Data to DB\EURO_INDEX.Inputs[OLE DB Destination Input].Columns[Adj Close]"
                       cachedDataType="r4"
                       cachedName="Adj Close"
-                      externalMetadataColumnId="Package\Data Flow Task\EURO_INDEX.Inputs[OLE DB Destination Input].ExternalColumns[EUR_Adj_Close]"
-                      lineageId="Package\Data Flow Task\Euro_Index_CSV.Outputs[Flat File Source Output].Columns[Adj Close]" />
+                      externalMetadataColumnId="Package\ETL Data to DB\EURO_INDEX.Inputs[OLE DB Destination Input].ExternalColumns[EUR_Adj_Close]"
+                      lineageId="Package\ETL Data to DB\Euro_Index_CSV.Outputs[Flat File Source Output].Columns[Adj Close]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\EURO_INDEX.Inputs[OLE DB Destination Input].Columns[Volume]"
+                      refId="Package\ETL Data to DB\EURO_INDEX.Inputs[OLE DB Destination Input].Columns[Volume]"
                       cachedDataType="r4"
                       cachedName="Volume"
-                      externalMetadataColumnId="Package\Data Flow Task\EURO_INDEX.Inputs[OLE DB Destination Input].ExternalColumns[EUR_Volume]"
-                      lineageId="Package\Data Flow Task\Euro_Index_CSV.Outputs[Flat File Source Output].Columns[Volume]" />
+                      externalMetadataColumnId="Package\ETL Data to DB\EURO_INDEX.Inputs[OLE DB Destination Input].ExternalColumns[EUR_Volume]"
+                      lineageId="Package\ETL Data to DB\Euro_Index_CSV.Outputs[Flat File Source Output].Columns[Volume]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\EURO_INDEX.Inputs[OLE DB Destination Input].ExternalColumns[FK_DT_Date]"
+                      refId="Package\ETL Data to DB\EURO_INDEX.Inputs[OLE DB Destination Input].ExternalColumns[FK_DT_Date]"
                       dataType="wstr"
                       length="10"
                       name="FK_DT_Date" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\EURO_INDEX.Inputs[OLE DB Destination Input].ExternalColumns[EUR_Open]"
+                      refId="Package\ETL Data to DB\EURO_INDEX.Inputs[OLE DB Destination Input].ExternalColumns[EUR_Open]"
                       dataType="r4"
                       name="EUR_Open" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\EURO_INDEX.Inputs[OLE DB Destination Input].ExternalColumns[EUR_High]"
+                      refId="Package\ETL Data to DB\EURO_INDEX.Inputs[OLE DB Destination Input].ExternalColumns[EUR_High]"
                       dataType="r4"
                       name="EUR_High" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\EURO_INDEX.Inputs[OLE DB Destination Input].ExternalColumns[EUR_Low]"
+                      refId="Package\ETL Data to DB\EURO_INDEX.Inputs[OLE DB Destination Input].ExternalColumns[EUR_Low]"
                       dataType="r4"
                       name="EUR_Low" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\EURO_INDEX.Inputs[OLE DB Destination Input].ExternalColumns[EUR_Close]"
+                      refId="Package\ETL Data to DB\EURO_INDEX.Inputs[OLE DB Destination Input].ExternalColumns[EUR_Close]"
                       dataType="r4"
                       name="EUR_Close" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\EURO_INDEX.Inputs[OLE DB Destination Input].ExternalColumns[EUR_Adj_Close]"
+                      refId="Package\ETL Data to DB\EURO_INDEX.Inputs[OLE DB Destination Input].ExternalColumns[EUR_Adj_Close]"
                       dataType="r4"
                       name="EUR_Adj_Close" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\EURO_INDEX.Inputs[OLE DB Destination Input].ExternalColumns[EUR_Volume]"
+                      refId="Package\ETL Data to DB\EURO_INDEX.Inputs[OLE DB Destination Input].ExternalColumns[EUR_Volume]"
                       dataType="r4"
                       name="EUR_Volume" />
                   </externalMetadataColumns>
@@ -551,22 +551,22 @@ FROM            (SELECT        MIN(dt) AS MinDate
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\EURO_INDEX.Outputs[OLE DB Destination Error Output]"
+                  refId="Package\ETL Data to DB\EURO_INDEX.Outputs[OLE DB Destination Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\Data Flow Task\EURO_INDEX.Inputs[OLE DB Destination Input]">
+                  synchronousInputId="Package\ETL Data to DB\EURO_INDEX.Inputs[OLE DB Destination Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\EURO_INDEX.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      refId="Package\ETL Data to DB\EURO_INDEX.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\EURO_INDEX.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      lineageId="Package\ETL Data to DB\EURO_INDEX.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\EURO_INDEX.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      refId="Package\ETL Data to DB\EURO_INDEX.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\EURO_INDEX.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\ETL Data to DB\EURO_INDEX.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -575,7 +575,7 @@ FROM            (SELECT        MIN(dt) AS MinDate
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task\Euro_Index_CSV"
+              refId="Package\ETL Data to DB\Euro_Index_CSV"
               componentClassID="Microsoft.FlatFileSource"
               contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
               description="Flat File Source"
@@ -595,24 +595,24 @@ FROM            (SELECT        MIN(dt) AS MinDate
               </properties>
               <connections>
                 <connection
-                  refId="Package\Data Flow Task\Euro_Index_CSV.Connections[FlatFileConnection]"
+                  refId="Package\ETL Data to DB\Euro_Index_CSV.Connections[FlatFileConnection]"
                   connectionManagerID="Package.ConnectionManagers[Euro_Index_CSV]"
                   connectionManagerRefId="Package.ConnectionManagers[Euro_Index_CSV]"
                   name="FlatFileConnection" />
               </connections>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\Euro_Index_CSV.Outputs[Flat File Source Output]"
+                  refId="Package\ETL Data to DB\Euro_Index_CSV.Outputs[Flat File Source Output]"
                   name="Flat File Source Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Euro_Index_CSV.Outputs[Flat File Source Output].Columns[Date]"
+                      refId="Package\ETL Data to DB\Euro_Index_CSV.Outputs[Flat File Source Output].Columns[Date]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Euro_Index_CSV.Outputs[Flat File Source Output].ExternalColumns[Date]"
+                      externalMetadataColumnId="Package\ETL Data to DB\Euro_Index_CSV.Outputs[Flat File Source Output].ExternalColumns[Date]"
                       length="50"
-                      lineageId="Package\Data Flow Task\Euro_Index_CSV.Outputs[Flat File Source Output].Columns[Date]"
+                      lineageId="Package\ETL Data to DB\Euro_Index_CSV.Outputs[Flat File Source Output].Columns[Date]"
                       name="Date"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -627,12 +627,12 @@ FROM            (SELECT        MIN(dt) AS MinDate
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Data Flow Task\Euro_Index_CSV.Outputs[Flat File Source Output].Columns[Open]"
+                      refId="Package\ETL Data to DB\Euro_Index_CSV.Outputs[Flat File Source Output].Columns[Open]"
                       dataType="r4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Euro_Index_CSV.Outputs[Flat File Source Output].ExternalColumns[Open]"
-                      lineageId="Package\Data Flow Task\Euro_Index_CSV.Outputs[Flat File Source Output].Columns[Open]"
+                      externalMetadataColumnId="Package\ETL Data to DB\Euro_Index_CSV.Outputs[Flat File Source Output].ExternalColumns[Open]"
+                      lineageId="Package\ETL Data to DB\Euro_Index_CSV.Outputs[Flat File Source Output].Columns[Open]"
                       name="Open"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -647,12 +647,12 @@ FROM            (SELECT        MIN(dt) AS MinDate
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Data Flow Task\Euro_Index_CSV.Outputs[Flat File Source Output].Columns[High]"
+                      refId="Package\ETL Data to DB\Euro_Index_CSV.Outputs[Flat File Source Output].Columns[High]"
                       dataType="r4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Euro_Index_CSV.Outputs[Flat File Source Output].ExternalColumns[High]"
-                      lineageId="Package\Data Flow Task\Euro_Index_CSV.Outputs[Flat File Source Output].Columns[High]"
+                      externalMetadataColumnId="Package\ETL Data to DB\Euro_Index_CSV.Outputs[Flat File Source Output].ExternalColumns[High]"
+                      lineageId="Package\ETL Data to DB\Euro_Index_CSV.Outputs[Flat File Source Output].Columns[High]"
                       name="High"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -667,12 +667,12 @@ FROM            (SELECT        MIN(dt) AS MinDate
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Data Flow Task\Euro_Index_CSV.Outputs[Flat File Source Output].Columns[Low]"
+                      refId="Package\ETL Data to DB\Euro_Index_CSV.Outputs[Flat File Source Output].Columns[Low]"
                       dataType="r4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Euro_Index_CSV.Outputs[Flat File Source Output].ExternalColumns[Low]"
-                      lineageId="Package\Data Flow Task\Euro_Index_CSV.Outputs[Flat File Source Output].Columns[Low]"
+                      externalMetadataColumnId="Package\ETL Data to DB\Euro_Index_CSV.Outputs[Flat File Source Output].ExternalColumns[Low]"
+                      lineageId="Package\ETL Data to DB\Euro_Index_CSV.Outputs[Flat File Source Output].Columns[Low]"
                       name="Low"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -687,12 +687,12 @@ FROM            (SELECT        MIN(dt) AS MinDate
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Data Flow Task\Euro_Index_CSV.Outputs[Flat File Source Output].Columns[Close]"
+                      refId="Package\ETL Data to DB\Euro_Index_CSV.Outputs[Flat File Source Output].Columns[Close]"
                       dataType="r4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Euro_Index_CSV.Outputs[Flat File Source Output].ExternalColumns[Close]"
-                      lineageId="Package\Data Flow Task\Euro_Index_CSV.Outputs[Flat File Source Output].Columns[Close]"
+                      externalMetadataColumnId="Package\ETL Data to DB\Euro_Index_CSV.Outputs[Flat File Source Output].ExternalColumns[Close]"
+                      lineageId="Package\ETL Data to DB\Euro_Index_CSV.Outputs[Flat File Source Output].Columns[Close]"
                       name="Close"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -707,12 +707,12 @@ FROM            (SELECT        MIN(dt) AS MinDate
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Data Flow Task\Euro_Index_CSV.Outputs[Flat File Source Output].Columns[Adj Close]"
+                      refId="Package\ETL Data to DB\Euro_Index_CSV.Outputs[Flat File Source Output].Columns[Adj Close]"
                       dataType="r4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Euro_Index_CSV.Outputs[Flat File Source Output].ExternalColumns[Adj Close]"
-                      lineageId="Package\Data Flow Task\Euro_Index_CSV.Outputs[Flat File Source Output].Columns[Adj Close]"
+                      externalMetadataColumnId="Package\ETL Data to DB\Euro_Index_CSV.Outputs[Flat File Source Output].ExternalColumns[Adj Close]"
+                      lineageId="Package\ETL Data to DB\Euro_Index_CSV.Outputs[Flat File Source Output].Columns[Adj Close]"
                       name="Adj Close"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -727,12 +727,12 @@ FROM            (SELECT        MIN(dt) AS MinDate
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Data Flow Task\Euro_Index_CSV.Outputs[Flat File Source Output].Columns[Volume]"
+                      refId="Package\ETL Data to DB\Euro_Index_CSV.Outputs[Flat File Source Output].Columns[Volume]"
                       dataType="r4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Euro_Index_CSV.Outputs[Flat File Source Output].ExternalColumns[Volume]"
-                      lineageId="Package\Data Flow Task\Euro_Index_CSV.Outputs[Flat File Source Output].Columns[Volume]"
+                      externalMetadataColumnId="Package\ETL Data to DB\Euro_Index_CSV.Outputs[Flat File Source Output].ExternalColumns[Volume]"
+                      lineageId="Package\ETL Data to DB\Euro_Index_CSV.Outputs[Flat File Source Output].Columns[Volume]"
                       name="Volume"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -750,58 +750,58 @@ FROM            (SELECT        MIN(dt) AS MinDate
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Euro_Index_CSV.Outputs[Flat File Source Output].ExternalColumns[Date]"
+                      refId="Package\ETL Data to DB\Euro_Index_CSV.Outputs[Flat File Source Output].ExternalColumns[Date]"
                       dataType="wstr"
                       length="50"
                       name="Date" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Euro_Index_CSV.Outputs[Flat File Source Output].ExternalColumns[Open]"
+                      refId="Package\ETL Data to DB\Euro_Index_CSV.Outputs[Flat File Source Output].ExternalColumns[Open]"
                       dataType="r4"
                       name="Open" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Euro_Index_CSV.Outputs[Flat File Source Output].ExternalColumns[High]"
+                      refId="Package\ETL Data to DB\Euro_Index_CSV.Outputs[Flat File Source Output].ExternalColumns[High]"
                       dataType="r4"
                       name="High" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Euro_Index_CSV.Outputs[Flat File Source Output].ExternalColumns[Low]"
+                      refId="Package\ETL Data to DB\Euro_Index_CSV.Outputs[Flat File Source Output].ExternalColumns[Low]"
                       dataType="r4"
                       name="Low" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Euro_Index_CSV.Outputs[Flat File Source Output].ExternalColumns[Close]"
+                      refId="Package\ETL Data to DB\Euro_Index_CSV.Outputs[Flat File Source Output].ExternalColumns[Close]"
                       dataType="r4"
                       name="Close" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Euro_Index_CSV.Outputs[Flat File Source Output].ExternalColumns[Adj Close]"
+                      refId="Package\ETL Data to DB\Euro_Index_CSV.Outputs[Flat File Source Output].ExternalColumns[Adj Close]"
                       dataType="r4"
                       name="Adj Close" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Euro_Index_CSV.Outputs[Flat File Source Output].ExternalColumns[Volume]"
+                      refId="Package\ETL Data to DB\Euro_Index_CSV.Outputs[Flat File Source Output].ExternalColumns[Volume]"
                       dataType="r4"
                       name="Volume" />
                   </externalMetadataColumns>
                 </output>
                 <output
-                  refId="Package\Data Flow Task\Euro_Index_CSV.Outputs[Flat File Source Error Output]"
+                  refId="Package\ETL Data to DB\Euro_Index_CSV.Outputs[Flat File Source Error Output]"
                   isErrorOut="true"
                   name="Flat File Source Error Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Euro_Index_CSV.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      refId="Package\ETL Data to DB\Euro_Index_CSV.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
                       codePage="1252"
                       dataType="text"
                       description="Flat File Source Error Output Column"
-                      lineageId="Package\Data Flow Task\Euro_Index_CSV.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      lineageId="Package\ETL Data to DB\Euro_Index_CSV.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
                       name="Flat File Source Error Output Column" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Euro_Index_CSV.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      refId="Package\ETL Data to DB\Euro_Index_CSV.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Euro_Index_CSV.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      lineageId="Package\ETL Data to DB\Euro_Index_CSV.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Euro_Index_CSV.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      refId="Package\ETL Data to DB\Euro_Index_CSV.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Euro_Index_CSV.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\ETL Data to DB\Euro_Index_CSV.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -810,7 +810,7 @@ FROM            (SELECT        MIN(dt) AS MinDate
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task\EUR_Lookup"
+              refId="Package\ETL Data to DB\EUR_Lookup"
               componentClassID="Microsoft.Lookup"
               contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
               description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
@@ -866,7 +866,7 @@ where [refTable].[FK_DT_Date] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Data Flow Task\Euro_Index_CSV.Outputs[Flat File Source Output].Columns[Date]};</property>
+                  name="ParameterMap">#{Package\ETL Data to DB\Euro_Index_CSV.Outputs[Flat File Source Output].Columns[Date]};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -878,7 +878,7 @@ where [refTable].[FK_DT_Date] = ?</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\Data Flow Task\EUR_Lookup.Connections[OleDbConnection]"
+                  refId="Package\ETL Data to DB\EUR_Lookup.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[MSI.ThalesStockPredictor]"
                   connectionManagerRefId="Package.ConnectionManagers[MSI.ThalesStockPredictor]"
                   description="Connection manager used to access lookup data."
@@ -886,15 +886,15 @@ where [refTable].[FK_DT_Date] = ?</property>
               </connections>
               <inputs>
                 <input
-                  refId="Package\Data Flow Task\EUR_Lookup.Inputs[Lookup Input]"
+                  refId="Package\ETL Data to DB\EUR_Lookup.Inputs[Lookup Input]"
                   name="Lookup Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\EUR_Lookup.Inputs[Lookup Input].Columns[Date]"
+                      refId="Package\ETL Data to DB\EUR_Lookup.Inputs[Lookup Input].Columns[Date]"
                       cachedDataType="wstr"
                       cachedLength="50"
                       cachedName="Date"
-                      lineageId="Package\Data Flow Task\Euro_Index_CSV.Outputs[Flat File Source Output].Columns[Date]">
+                      lineageId="Package\ETL Data to DB\Euro_Index_CSV.Outputs[Flat File Source Output].Columns[Date]">
                       <properties>
                         <property
                           dataType="System.String"
@@ -912,38 +912,38 @@ where [refTable].[FK_DT_Date] = ?</property>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\EUR_Lookup.Outputs[Lookup Match Output]"
+                  refId="Package\ETL Data to DB\EUR_Lookup.Outputs[Lookup Match Output]"
                   errorOrTruncationOperation="Lookup"
                   exclusionGroup="1"
                   name="Lookup Match Output"
-                  synchronousInputId="Package\Data Flow Task\EUR_Lookup.Inputs[Lookup Input]">
+                  synchronousInputId="Package\ETL Data to DB\EUR_Lookup.Inputs[Lookup Input]">
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Data Flow Task\EUR_Lookup.Outputs[Lookup No Match Output]"
+                  refId="Package\ETL Data to DB\EUR_Lookup.Outputs[Lookup No Match Output]"
                   description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
                   exclusionGroup="1"
                   name="Lookup No Match Output"
-                  synchronousInputId="Package\Data Flow Task\EUR_Lookup.Inputs[Lookup Input]">
+                  synchronousInputId="Package\ETL Data to DB\EUR_Lookup.Inputs[Lookup Input]">
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Data Flow Task\EUR_Lookup.Outputs[Lookup Error Output]"
+                  refId="Package\ETL Data to DB\EUR_Lookup.Outputs[Lookup Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Lookup Error Output"
-                  synchronousInputId="Package\Data Flow Task\EUR_Lookup.Inputs[Lookup Input]">
+                  synchronousInputId="Package\ETL Data to DB\EUR_Lookup.Inputs[Lookup Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\EUR_Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      refId="Package\ETL Data to DB\EUR_Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\EUR_Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      lineageId="Package\ETL Data to DB\EUR_Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\EUR_Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      refId="Package\ETL Data to DB\EUR_Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\EUR_Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\ETL Data to DB\EUR_Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -952,7 +952,7 @@ where [refTable].[FK_DT_Date] = ?</property>
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task\France_Index_CSV"
+              refId="Package\ETL Data to DB\France_Index_CSV"
               componentClassID="Microsoft.FlatFileSource"
               contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
               description="Flat File Source"
@@ -972,24 +972,24 @@ where [refTable].[FK_DT_Date] = ?</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\Data Flow Task\France_Index_CSV.Connections[FlatFileConnection]"
+                  refId="Package\ETL Data to DB\France_Index_CSV.Connections[FlatFileConnection]"
                   connectionManagerID="Package.ConnectionManagers[France_Index_CSV]"
                   connectionManagerRefId="Package.ConnectionManagers[France_Index_CSV]"
                   name="FlatFileConnection" />
               </connections>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\France_Index_CSV.Outputs[Flat File Source Output]"
+                  refId="Package\ETL Data to DB\France_Index_CSV.Outputs[Flat File Source Output]"
                   name="Flat File Source Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\France_Index_CSV.Outputs[Flat File Source Output].Columns[Date]"
+                      refId="Package\ETL Data to DB\France_Index_CSV.Outputs[Flat File Source Output].Columns[Date]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\France_Index_CSV.Outputs[Flat File Source Output].ExternalColumns[Date]"
+                      externalMetadataColumnId="Package\ETL Data to DB\France_Index_CSV.Outputs[Flat File Source Output].ExternalColumns[Date]"
                       length="50"
-                      lineageId="Package\Data Flow Task\France_Index_CSV.Outputs[Flat File Source Output].Columns[Date]"
+                      lineageId="Package\ETL Data to DB\France_Index_CSV.Outputs[Flat File Source Output].Columns[Date]"
                       name="Date"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -1004,12 +1004,12 @@ where [refTable].[FK_DT_Date] = ?</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Data Flow Task\France_Index_CSV.Outputs[Flat File Source Output].Columns[Open]"
+                      refId="Package\ETL Data to DB\France_Index_CSV.Outputs[Flat File Source Output].Columns[Open]"
                       dataType="r4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\France_Index_CSV.Outputs[Flat File Source Output].ExternalColumns[Open]"
-                      lineageId="Package\Data Flow Task\France_Index_CSV.Outputs[Flat File Source Output].Columns[Open]"
+                      externalMetadataColumnId="Package\ETL Data to DB\France_Index_CSV.Outputs[Flat File Source Output].ExternalColumns[Open]"
+                      lineageId="Package\ETL Data to DB\France_Index_CSV.Outputs[Flat File Source Output].Columns[Open]"
                       name="Open"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -1024,12 +1024,12 @@ where [refTable].[FK_DT_Date] = ?</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Data Flow Task\France_Index_CSV.Outputs[Flat File Source Output].Columns[High]"
+                      refId="Package\ETL Data to DB\France_Index_CSV.Outputs[Flat File Source Output].Columns[High]"
                       dataType="r4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\France_Index_CSV.Outputs[Flat File Source Output].ExternalColumns[High]"
-                      lineageId="Package\Data Flow Task\France_Index_CSV.Outputs[Flat File Source Output].Columns[High]"
+                      externalMetadataColumnId="Package\ETL Data to DB\France_Index_CSV.Outputs[Flat File Source Output].ExternalColumns[High]"
+                      lineageId="Package\ETL Data to DB\France_Index_CSV.Outputs[Flat File Source Output].Columns[High]"
                       name="High"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -1044,12 +1044,12 @@ where [refTable].[FK_DT_Date] = ?</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Data Flow Task\France_Index_CSV.Outputs[Flat File Source Output].Columns[Low]"
+                      refId="Package\ETL Data to DB\France_Index_CSV.Outputs[Flat File Source Output].Columns[Low]"
                       dataType="r4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\France_Index_CSV.Outputs[Flat File Source Output].ExternalColumns[Low]"
-                      lineageId="Package\Data Flow Task\France_Index_CSV.Outputs[Flat File Source Output].Columns[Low]"
+                      externalMetadataColumnId="Package\ETL Data to DB\France_Index_CSV.Outputs[Flat File Source Output].ExternalColumns[Low]"
+                      lineageId="Package\ETL Data to DB\France_Index_CSV.Outputs[Flat File Source Output].Columns[Low]"
                       name="Low"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -1064,12 +1064,12 @@ where [refTable].[FK_DT_Date] = ?</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Data Flow Task\France_Index_CSV.Outputs[Flat File Source Output].Columns[Close]"
+                      refId="Package\ETL Data to DB\France_Index_CSV.Outputs[Flat File Source Output].Columns[Close]"
                       dataType="r4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\France_Index_CSV.Outputs[Flat File Source Output].ExternalColumns[Close]"
-                      lineageId="Package\Data Flow Task\France_Index_CSV.Outputs[Flat File Source Output].Columns[Close]"
+                      externalMetadataColumnId="Package\ETL Data to DB\France_Index_CSV.Outputs[Flat File Source Output].ExternalColumns[Close]"
+                      lineageId="Package\ETL Data to DB\France_Index_CSV.Outputs[Flat File Source Output].Columns[Close]"
                       name="Close"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -1084,12 +1084,12 @@ where [refTable].[FK_DT_Date] = ?</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Data Flow Task\France_Index_CSV.Outputs[Flat File Source Output].Columns[Adj Close]"
+                      refId="Package\ETL Data to DB\France_Index_CSV.Outputs[Flat File Source Output].Columns[Adj Close]"
                       dataType="r4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\France_Index_CSV.Outputs[Flat File Source Output].ExternalColumns[Adj Close]"
-                      lineageId="Package\Data Flow Task\France_Index_CSV.Outputs[Flat File Source Output].Columns[Adj Close]"
+                      externalMetadataColumnId="Package\ETL Data to DB\France_Index_CSV.Outputs[Flat File Source Output].ExternalColumns[Adj Close]"
+                      lineageId="Package\ETL Data to DB\France_Index_CSV.Outputs[Flat File Source Output].Columns[Adj Close]"
                       name="Adj Close"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -1104,12 +1104,12 @@ where [refTable].[FK_DT_Date] = ?</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Data Flow Task\France_Index_CSV.Outputs[Flat File Source Output].Columns[Volume]"
+                      refId="Package\ETL Data to DB\France_Index_CSV.Outputs[Flat File Source Output].Columns[Volume]"
                       dataType="r4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\France_Index_CSV.Outputs[Flat File Source Output].ExternalColumns[Volume]"
-                      lineageId="Package\Data Flow Task\France_Index_CSV.Outputs[Flat File Source Output].Columns[Volume]"
+                      externalMetadataColumnId="Package\ETL Data to DB\France_Index_CSV.Outputs[Flat File Source Output].ExternalColumns[Volume]"
+                      lineageId="Package\ETL Data to DB\France_Index_CSV.Outputs[Flat File Source Output].Columns[Volume]"
                       name="Volume"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -1127,58 +1127,58 @@ where [refTable].[FK_DT_Date] = ?</property>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\France_Index_CSV.Outputs[Flat File Source Output].ExternalColumns[Date]"
+                      refId="Package\ETL Data to DB\France_Index_CSV.Outputs[Flat File Source Output].ExternalColumns[Date]"
                       dataType="wstr"
                       length="50"
                       name="Date" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\France_Index_CSV.Outputs[Flat File Source Output].ExternalColumns[Open]"
+                      refId="Package\ETL Data to DB\France_Index_CSV.Outputs[Flat File Source Output].ExternalColumns[Open]"
                       dataType="r4"
                       name="Open" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\France_Index_CSV.Outputs[Flat File Source Output].ExternalColumns[High]"
+                      refId="Package\ETL Data to DB\France_Index_CSV.Outputs[Flat File Source Output].ExternalColumns[High]"
                       dataType="r4"
                       name="High" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\France_Index_CSV.Outputs[Flat File Source Output].ExternalColumns[Low]"
+                      refId="Package\ETL Data to DB\France_Index_CSV.Outputs[Flat File Source Output].ExternalColumns[Low]"
                       dataType="r4"
                       name="Low" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\France_Index_CSV.Outputs[Flat File Source Output].ExternalColumns[Close]"
+                      refId="Package\ETL Data to DB\France_Index_CSV.Outputs[Flat File Source Output].ExternalColumns[Close]"
                       dataType="r4"
                       name="Close" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\France_Index_CSV.Outputs[Flat File Source Output].ExternalColumns[Adj Close]"
+                      refId="Package\ETL Data to DB\France_Index_CSV.Outputs[Flat File Source Output].ExternalColumns[Adj Close]"
                       dataType="r4"
                       name="Adj Close" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\France_Index_CSV.Outputs[Flat File Source Output].ExternalColumns[Volume]"
+                      refId="Package\ETL Data to DB\France_Index_CSV.Outputs[Flat File Source Output].ExternalColumns[Volume]"
                       dataType="r4"
                       name="Volume" />
                   </externalMetadataColumns>
                 </output>
                 <output
-                  refId="Package\Data Flow Task\France_Index_CSV.Outputs[Flat File Source Error Output]"
+                  refId="Package\ETL Data to DB\France_Index_CSV.Outputs[Flat File Source Error Output]"
                   isErrorOut="true"
                   name="Flat File Source Error Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\France_Index_CSV.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      refId="Package\ETL Data to DB\France_Index_CSV.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
                       codePage="1252"
                       dataType="text"
                       description="Flat File Source Error Output Column"
-                      lineageId="Package\Data Flow Task\France_Index_CSV.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      lineageId="Package\ETL Data to DB\France_Index_CSV.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
                       name="Flat File Source Error Output Column" />
                     <outputColumn
-                      refId="Package\Data Flow Task\France_Index_CSV.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      refId="Package\ETL Data to DB\France_Index_CSV.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\France_Index_CSV.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      lineageId="Package\ETL Data to DB\France_Index_CSV.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\France_Index_CSV.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      refId="Package\ETL Data to DB\France_Index_CSV.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\France_Index_CSV.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\ETL Data to DB\France_Index_CSV.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -1187,7 +1187,7 @@ where [refTable].[FK_DT_Date] = ?</property>
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task\FRA_INDEX"
+              refId="Package\ETL Data to DB\FRA_INDEX"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
               description="OLE DB Destination"
@@ -1244,7 +1244,7 @@ where [refTable].[FK_DT_Date] = ?</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\Data Flow Task\FRA_INDEX.Connections[OleDbConnection]"
+                  refId="Package\ETL Data to DB\FRA_INDEX.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[MSI.ThalesStockPredictor]"
                   connectionManagerRefId="Package.ConnectionManagers[MSI.ThalesStockPredictor]"
                   description="The OLE DB runtime connection used to access the database."
@@ -1252,85 +1252,85 @@ where [refTable].[FK_DT_Date] = ?</property>
               </connections>
               <inputs>
                 <input
-                  refId="Package\Data Flow Task\FRA_INDEX.Inputs[OLE DB Destination Input]"
+                  refId="Package\ETL Data to DB\FRA_INDEX.Inputs[OLE DB Destination Input]"
                   errorOrTruncationOperation="Insert"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\FRA_INDEX.Inputs[OLE DB Destination Input].Columns[Date]"
+                      refId="Package\ETL Data to DB\FRA_INDEX.Inputs[OLE DB Destination Input].Columns[Date]"
                       cachedDataType="wstr"
                       cachedLength="50"
                       cachedName="Date"
-                      externalMetadataColumnId="Package\Data Flow Task\FRA_INDEX.Inputs[OLE DB Destination Input].ExternalColumns[FK_DT_Date]"
-                      lineageId="Package\Data Flow Task\France_Index_CSV.Outputs[Flat File Source Output].Columns[Date]" />
+                      externalMetadataColumnId="Package\ETL Data to DB\FRA_INDEX.Inputs[OLE DB Destination Input].ExternalColumns[FK_DT_Date]"
+                      lineageId="Package\ETL Data to DB\France_Index_CSV.Outputs[Flat File Source Output].Columns[Date]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\FRA_INDEX.Inputs[OLE DB Destination Input].Columns[Open]"
+                      refId="Package\ETL Data to DB\FRA_INDEX.Inputs[OLE DB Destination Input].Columns[Open]"
                       cachedDataType="r4"
                       cachedName="Open"
-                      externalMetadataColumnId="Package\Data Flow Task\FRA_INDEX.Inputs[OLE DB Destination Input].ExternalColumns[FRA_Open]"
-                      lineageId="Package\Data Flow Task\France_Index_CSV.Outputs[Flat File Source Output].Columns[Open]" />
+                      externalMetadataColumnId="Package\ETL Data to DB\FRA_INDEX.Inputs[OLE DB Destination Input].ExternalColumns[FRA_Open]"
+                      lineageId="Package\ETL Data to DB\France_Index_CSV.Outputs[Flat File Source Output].Columns[Open]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\FRA_INDEX.Inputs[OLE DB Destination Input].Columns[High]"
+                      refId="Package\ETL Data to DB\FRA_INDEX.Inputs[OLE DB Destination Input].Columns[High]"
                       cachedDataType="r4"
                       cachedName="High"
-                      externalMetadataColumnId="Package\Data Flow Task\FRA_INDEX.Inputs[OLE DB Destination Input].ExternalColumns[FRA_High]"
-                      lineageId="Package\Data Flow Task\France_Index_CSV.Outputs[Flat File Source Output].Columns[High]" />
+                      externalMetadataColumnId="Package\ETL Data to DB\FRA_INDEX.Inputs[OLE DB Destination Input].ExternalColumns[FRA_High]"
+                      lineageId="Package\ETL Data to DB\France_Index_CSV.Outputs[Flat File Source Output].Columns[High]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\FRA_INDEX.Inputs[OLE DB Destination Input].Columns[Low]"
+                      refId="Package\ETL Data to DB\FRA_INDEX.Inputs[OLE DB Destination Input].Columns[Low]"
                       cachedDataType="r4"
                       cachedName="Low"
-                      externalMetadataColumnId="Package\Data Flow Task\FRA_INDEX.Inputs[OLE DB Destination Input].ExternalColumns[FRA_Low]"
-                      lineageId="Package\Data Flow Task\France_Index_CSV.Outputs[Flat File Source Output].Columns[Low]" />
+                      externalMetadataColumnId="Package\ETL Data to DB\FRA_INDEX.Inputs[OLE DB Destination Input].ExternalColumns[FRA_Low]"
+                      lineageId="Package\ETL Data to DB\France_Index_CSV.Outputs[Flat File Source Output].Columns[Low]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\FRA_INDEX.Inputs[OLE DB Destination Input].Columns[Close]"
+                      refId="Package\ETL Data to DB\FRA_INDEX.Inputs[OLE DB Destination Input].Columns[Close]"
                       cachedDataType="r4"
                       cachedName="Close"
-                      externalMetadataColumnId="Package\Data Flow Task\FRA_INDEX.Inputs[OLE DB Destination Input].ExternalColumns[FRA_Close]"
-                      lineageId="Package\Data Flow Task\France_Index_CSV.Outputs[Flat File Source Output].Columns[Close]" />
+                      externalMetadataColumnId="Package\ETL Data to DB\FRA_INDEX.Inputs[OLE DB Destination Input].ExternalColumns[FRA_Close]"
+                      lineageId="Package\ETL Data to DB\France_Index_CSV.Outputs[Flat File Source Output].Columns[Close]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\FRA_INDEX.Inputs[OLE DB Destination Input].Columns[Adj Close]"
+                      refId="Package\ETL Data to DB\FRA_INDEX.Inputs[OLE DB Destination Input].Columns[Adj Close]"
                       cachedDataType="r4"
                       cachedName="Adj Close"
-                      externalMetadataColumnId="Package\Data Flow Task\FRA_INDEX.Inputs[OLE DB Destination Input].ExternalColumns[FRA_Adj_Close]"
-                      lineageId="Package\Data Flow Task\France_Index_CSV.Outputs[Flat File Source Output].Columns[Adj Close]" />
+                      externalMetadataColumnId="Package\ETL Data to DB\FRA_INDEX.Inputs[OLE DB Destination Input].ExternalColumns[FRA_Adj_Close]"
+                      lineageId="Package\ETL Data to DB\France_Index_CSV.Outputs[Flat File Source Output].Columns[Adj Close]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\FRA_INDEX.Inputs[OLE DB Destination Input].Columns[Volume]"
+                      refId="Package\ETL Data to DB\FRA_INDEX.Inputs[OLE DB Destination Input].Columns[Volume]"
                       cachedDataType="r4"
                       cachedName="Volume"
-                      externalMetadataColumnId="Package\Data Flow Task\FRA_INDEX.Inputs[OLE DB Destination Input].ExternalColumns[FRA_Volume]"
-                      lineageId="Package\Data Flow Task\France_Index_CSV.Outputs[Flat File Source Output].Columns[Volume]" />
+                      externalMetadataColumnId="Package\ETL Data to DB\FRA_INDEX.Inputs[OLE DB Destination Input].ExternalColumns[FRA_Volume]"
+                      lineageId="Package\ETL Data to DB\France_Index_CSV.Outputs[Flat File Source Output].Columns[Volume]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\FRA_INDEX.Inputs[OLE DB Destination Input].ExternalColumns[FK_DT_Date]"
+                      refId="Package\ETL Data to DB\FRA_INDEX.Inputs[OLE DB Destination Input].ExternalColumns[FK_DT_Date]"
                       dataType="wstr"
                       length="10"
                       name="FK_DT_Date" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\FRA_INDEX.Inputs[OLE DB Destination Input].ExternalColumns[FRA_Open]"
+                      refId="Package\ETL Data to DB\FRA_INDEX.Inputs[OLE DB Destination Input].ExternalColumns[FRA_Open]"
                       dataType="r4"
                       name="FRA_Open" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\FRA_INDEX.Inputs[OLE DB Destination Input].ExternalColumns[FRA_High]"
+                      refId="Package\ETL Data to DB\FRA_INDEX.Inputs[OLE DB Destination Input].ExternalColumns[FRA_High]"
                       dataType="r4"
                       name="FRA_High" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\FRA_INDEX.Inputs[OLE DB Destination Input].ExternalColumns[FRA_Low]"
+                      refId="Package\ETL Data to DB\FRA_INDEX.Inputs[OLE DB Destination Input].ExternalColumns[FRA_Low]"
                       dataType="r4"
                       name="FRA_Low" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\FRA_INDEX.Inputs[OLE DB Destination Input].ExternalColumns[FRA_Close]"
+                      refId="Package\ETL Data to DB\FRA_INDEX.Inputs[OLE DB Destination Input].ExternalColumns[FRA_Close]"
                       dataType="r4"
                       name="FRA_Close" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\FRA_INDEX.Inputs[OLE DB Destination Input].ExternalColumns[FRA_Adj_Close]"
+                      refId="Package\ETL Data to DB\FRA_INDEX.Inputs[OLE DB Destination Input].ExternalColumns[FRA_Adj_Close]"
                       dataType="r4"
                       name="FRA_Adj_Close" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\FRA_INDEX.Inputs[OLE DB Destination Input].ExternalColumns[FRA_Volume]"
+                      refId="Package\ETL Data to DB\FRA_INDEX.Inputs[OLE DB Destination Input].ExternalColumns[FRA_Volume]"
                       dataType="r4"
                       name="FRA_Volume" />
                   </externalMetadataColumns>
@@ -1338,22 +1338,22 @@ where [refTable].[FK_DT_Date] = ?</property>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\FRA_INDEX.Outputs[OLE DB Destination Error Output]"
+                  refId="Package\ETL Data to DB\FRA_INDEX.Outputs[OLE DB Destination Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\Data Flow Task\FRA_INDEX.Inputs[OLE DB Destination Input]">
+                  synchronousInputId="Package\ETL Data to DB\FRA_INDEX.Inputs[OLE DB Destination Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\FRA_INDEX.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      refId="Package\ETL Data to DB\FRA_INDEX.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\FRA_INDEX.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      lineageId="Package\ETL Data to DB\FRA_INDEX.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\FRA_INDEX.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      refId="Package\ETL Data to DB\FRA_INDEX.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\FRA_INDEX.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\ETL Data to DB\FRA_INDEX.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -1362,7 +1362,7 @@ where [refTable].[FK_DT_Date] = ?</property>
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task\FRA_Lookup"
+              refId="Package\ETL Data to DB\FRA_Lookup"
               componentClassID="Microsoft.Lookup"
               contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
               description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
@@ -1418,7 +1418,7 @@ where [refTable].[FK_DT_Date] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Data Flow Task\France_Index_CSV.Outputs[Flat File Source Output].Columns[Date]};</property>
+                  name="ParameterMap">#{Package\ETL Data to DB\France_Index_CSV.Outputs[Flat File Source Output].Columns[Date]};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -1430,7 +1430,7 @@ where [refTable].[FK_DT_Date] = ?</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\Data Flow Task\FRA_Lookup.Connections[OleDbConnection]"
+                  refId="Package\ETL Data to DB\FRA_Lookup.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[MSI.ThalesStockPredictor]"
                   connectionManagerRefId="Package.ConnectionManagers[MSI.ThalesStockPredictor]"
                   description="Connection manager used to access lookup data."
@@ -1438,15 +1438,15 @@ where [refTable].[FK_DT_Date] = ?</property>
               </connections>
               <inputs>
                 <input
-                  refId="Package\Data Flow Task\FRA_Lookup.Inputs[Lookup Input]"
+                  refId="Package\ETL Data to DB\FRA_Lookup.Inputs[Lookup Input]"
                   name="Lookup Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\FRA_Lookup.Inputs[Lookup Input].Columns[Date]"
+                      refId="Package\ETL Data to DB\FRA_Lookup.Inputs[Lookup Input].Columns[Date]"
                       cachedDataType="wstr"
                       cachedLength="50"
                       cachedName="Date"
-                      lineageId="Package\Data Flow Task\France_Index_CSV.Outputs[Flat File Source Output].Columns[Date]">
+                      lineageId="Package\ETL Data to DB\France_Index_CSV.Outputs[Flat File Source Output].Columns[Date]">
                       <properties>
                         <property
                           dataType="System.String"
@@ -1464,38 +1464,38 @@ where [refTable].[FK_DT_Date] = ?</property>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\FRA_Lookup.Outputs[Lookup Match Output]"
+                  refId="Package\ETL Data to DB\FRA_Lookup.Outputs[Lookup Match Output]"
                   errorOrTruncationOperation="Lookup"
                   exclusionGroup="1"
                   name="Lookup Match Output"
-                  synchronousInputId="Package\Data Flow Task\FRA_Lookup.Inputs[Lookup Input]">
+                  synchronousInputId="Package\ETL Data to DB\FRA_Lookup.Inputs[Lookup Input]">
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Data Flow Task\FRA_Lookup.Outputs[Lookup No Match Output]"
+                  refId="Package\ETL Data to DB\FRA_Lookup.Outputs[Lookup No Match Output]"
                   description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
                   exclusionGroup="1"
                   name="Lookup No Match Output"
-                  synchronousInputId="Package\Data Flow Task\FRA_Lookup.Inputs[Lookup Input]">
+                  synchronousInputId="Package\ETL Data to DB\FRA_Lookup.Inputs[Lookup Input]">
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Data Flow Task\FRA_Lookup.Outputs[Lookup Error Output]"
+                  refId="Package\ETL Data to DB\FRA_Lookup.Outputs[Lookup Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Lookup Error Output"
-                  synchronousInputId="Package\Data Flow Task\FRA_Lookup.Inputs[Lookup Input]">
+                  synchronousInputId="Package\ETL Data to DB\FRA_Lookup.Inputs[Lookup Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\FRA_Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      refId="Package\ETL Data to DB\FRA_Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\FRA_Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      lineageId="Package\ETL Data to DB\FRA_Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\FRA_Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      refId="Package\ETL Data to DB\FRA_Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\FRA_Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\ETL Data to DB\FRA_Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -1504,7 +1504,7 @@ where [refTable].[FK_DT_Date] = ?</property>
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task\SPI_Lookup"
+              refId="Package\ETL Data to DB\SPI_Lookup"
               componentClassID="Microsoft.Lookup"
               contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
               description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
@@ -1560,7 +1560,7 @@ where [refTable].[FK_DT_Date] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Data Flow Task\S_P_Index_CSV.Outputs[Flat File Source Output].Columns[Date]};</property>
+                  name="ParameterMap">#{Package\ETL Data to DB\S_P_Index_CSV.Outputs[Flat File Source Output].Columns[Date]};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -1572,7 +1572,7 @@ where [refTable].[FK_DT_Date] = ?</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\Data Flow Task\SPI_Lookup.Connections[OleDbConnection]"
+                  refId="Package\ETL Data to DB\SPI_Lookup.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[MSI.ThalesStockPredictor]"
                   connectionManagerRefId="Package.ConnectionManagers[MSI.ThalesStockPredictor]"
                   description="Connection manager used to access lookup data."
@@ -1580,15 +1580,15 @@ where [refTable].[FK_DT_Date] = ?</property>
               </connections>
               <inputs>
                 <input
-                  refId="Package\Data Flow Task\SPI_Lookup.Inputs[Lookup Input]"
+                  refId="Package\ETL Data to DB\SPI_Lookup.Inputs[Lookup Input]"
                   name="Lookup Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\SPI_Lookup.Inputs[Lookup Input].Columns[Date]"
+                      refId="Package\ETL Data to DB\SPI_Lookup.Inputs[Lookup Input].Columns[Date]"
                       cachedDataType="wstr"
                       cachedLength="50"
                       cachedName="Date"
-                      lineageId="Package\Data Flow Task\S_P_Index_CSV.Outputs[Flat File Source Output].Columns[Date]">
+                      lineageId="Package\ETL Data to DB\S_P_Index_CSV.Outputs[Flat File Source Output].Columns[Date]">
                       <properties>
                         <property
                           dataType="System.String"
@@ -1606,38 +1606,38 @@ where [refTable].[FK_DT_Date] = ?</property>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\SPI_Lookup.Outputs[Lookup Match Output]"
+                  refId="Package\ETL Data to DB\SPI_Lookup.Outputs[Lookup Match Output]"
                   errorOrTruncationOperation="Lookup"
                   exclusionGroup="1"
                   name="Lookup Match Output"
-                  synchronousInputId="Package\Data Flow Task\SPI_Lookup.Inputs[Lookup Input]">
+                  synchronousInputId="Package\ETL Data to DB\SPI_Lookup.Inputs[Lookup Input]">
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Data Flow Task\SPI_Lookup.Outputs[Lookup No Match Output]"
+                  refId="Package\ETL Data to DB\SPI_Lookup.Outputs[Lookup No Match Output]"
                   description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
                   exclusionGroup="1"
                   name="Lookup No Match Output"
-                  synchronousInputId="Package\Data Flow Task\SPI_Lookup.Inputs[Lookup Input]">
+                  synchronousInputId="Package\ETL Data to DB\SPI_Lookup.Inputs[Lookup Input]">
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Data Flow Task\SPI_Lookup.Outputs[Lookup Error Output]"
+                  refId="Package\ETL Data to DB\SPI_Lookup.Outputs[Lookup Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Lookup Error Output"
-                  synchronousInputId="Package\Data Flow Task\SPI_Lookup.Inputs[Lookup Input]">
+                  synchronousInputId="Package\ETL Data to DB\SPI_Lookup.Inputs[Lookup Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\SPI_Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      refId="Package\ETL Data to DB\SPI_Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\SPI_Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      lineageId="Package\ETL Data to DB\SPI_Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\SPI_Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      refId="Package\ETL Data to DB\SPI_Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\SPI_Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\ETL Data to DB\SPI_Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -1646,7 +1646,7 @@ where [refTable].[FK_DT_Date] = ?</property>
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task\S_P_INDEX"
+              refId="Package\ETL Data to DB\S_P_INDEX"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
               description="OLE DB Destination"
@@ -1703,7 +1703,7 @@ where [refTable].[FK_DT_Date] = ?</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\Data Flow Task\S_P_INDEX.Connections[OleDbConnection]"
+                  refId="Package\ETL Data to DB\S_P_INDEX.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[MSI.ThalesStockPredictor]"
                   connectionManagerRefId="Package.ConnectionManagers[MSI.ThalesStockPredictor]"
                   description="The OLE DB runtime connection used to access the database."
@@ -1711,85 +1711,85 @@ where [refTable].[FK_DT_Date] = ?</property>
               </connections>
               <inputs>
                 <input
-                  refId="Package\Data Flow Task\S_P_INDEX.Inputs[OLE DB Destination Input]"
+                  refId="Package\ETL Data to DB\S_P_INDEX.Inputs[OLE DB Destination Input]"
                   errorOrTruncationOperation="Insert"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\S_P_INDEX.Inputs[OLE DB Destination Input].Columns[Date]"
+                      refId="Package\ETL Data to DB\S_P_INDEX.Inputs[OLE DB Destination Input].Columns[Date]"
                       cachedDataType="wstr"
                       cachedLength="50"
                       cachedName="Date"
-                      externalMetadataColumnId="Package\Data Flow Task\S_P_INDEX.Inputs[OLE DB Destination Input].ExternalColumns[FK_DT_Date]"
-                      lineageId="Package\Data Flow Task\S_P_Index_CSV.Outputs[Flat File Source Output].Columns[Date]" />
+                      externalMetadataColumnId="Package\ETL Data to DB\S_P_INDEX.Inputs[OLE DB Destination Input].ExternalColumns[FK_DT_Date]"
+                      lineageId="Package\ETL Data to DB\S_P_Index_CSV.Outputs[Flat File Source Output].Columns[Date]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\S_P_INDEX.Inputs[OLE DB Destination Input].Columns[Open]"
+                      refId="Package\ETL Data to DB\S_P_INDEX.Inputs[OLE DB Destination Input].Columns[Open]"
                       cachedDataType="r4"
                       cachedName="Open"
-                      externalMetadataColumnId="Package\Data Flow Task\S_P_INDEX.Inputs[OLE DB Destination Input].ExternalColumns[SPI_Open]"
-                      lineageId="Package\Data Flow Task\S_P_Index_CSV.Outputs[Flat File Source Output].Columns[Open]" />
+                      externalMetadataColumnId="Package\ETL Data to DB\S_P_INDEX.Inputs[OLE DB Destination Input].ExternalColumns[SPI_Open]"
+                      lineageId="Package\ETL Data to DB\S_P_Index_CSV.Outputs[Flat File Source Output].Columns[Open]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\S_P_INDEX.Inputs[OLE DB Destination Input].Columns[High]"
+                      refId="Package\ETL Data to DB\S_P_INDEX.Inputs[OLE DB Destination Input].Columns[High]"
                       cachedDataType="r4"
                       cachedName="High"
-                      externalMetadataColumnId="Package\Data Flow Task\S_P_INDEX.Inputs[OLE DB Destination Input].ExternalColumns[SPI_High]"
-                      lineageId="Package\Data Flow Task\S_P_Index_CSV.Outputs[Flat File Source Output].Columns[High]" />
+                      externalMetadataColumnId="Package\ETL Data to DB\S_P_INDEX.Inputs[OLE DB Destination Input].ExternalColumns[SPI_High]"
+                      lineageId="Package\ETL Data to DB\S_P_Index_CSV.Outputs[Flat File Source Output].Columns[High]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\S_P_INDEX.Inputs[OLE DB Destination Input].Columns[Low]"
+                      refId="Package\ETL Data to DB\S_P_INDEX.Inputs[OLE DB Destination Input].Columns[Low]"
                       cachedDataType="r4"
                       cachedName="Low"
-                      externalMetadataColumnId="Package\Data Flow Task\S_P_INDEX.Inputs[OLE DB Destination Input].ExternalColumns[SPI_Low]"
-                      lineageId="Package\Data Flow Task\S_P_Index_CSV.Outputs[Flat File Source Output].Columns[Low]" />
+                      externalMetadataColumnId="Package\ETL Data to DB\S_P_INDEX.Inputs[OLE DB Destination Input].ExternalColumns[SPI_Low]"
+                      lineageId="Package\ETL Data to DB\S_P_Index_CSV.Outputs[Flat File Source Output].Columns[Low]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\S_P_INDEX.Inputs[OLE DB Destination Input].Columns[Close]"
+                      refId="Package\ETL Data to DB\S_P_INDEX.Inputs[OLE DB Destination Input].Columns[Close]"
                       cachedDataType="r4"
                       cachedName="Close"
-                      externalMetadataColumnId="Package\Data Flow Task\S_P_INDEX.Inputs[OLE DB Destination Input].ExternalColumns[SPI_Close]"
-                      lineageId="Package\Data Flow Task\S_P_Index_CSV.Outputs[Flat File Source Output].Columns[Close]" />
+                      externalMetadataColumnId="Package\ETL Data to DB\S_P_INDEX.Inputs[OLE DB Destination Input].ExternalColumns[SPI_Close]"
+                      lineageId="Package\ETL Data to DB\S_P_Index_CSV.Outputs[Flat File Source Output].Columns[Close]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\S_P_INDEX.Inputs[OLE DB Destination Input].Columns[Adj Close]"
+                      refId="Package\ETL Data to DB\S_P_INDEX.Inputs[OLE DB Destination Input].Columns[Adj Close]"
                       cachedDataType="r4"
                       cachedName="Adj Close"
-                      externalMetadataColumnId="Package\Data Flow Task\S_P_INDEX.Inputs[OLE DB Destination Input].ExternalColumns[SPI_Adj_Close]"
-                      lineageId="Package\Data Flow Task\S_P_Index_CSV.Outputs[Flat File Source Output].Columns[Adj Close]" />
+                      externalMetadataColumnId="Package\ETL Data to DB\S_P_INDEX.Inputs[OLE DB Destination Input].ExternalColumns[SPI_Adj_Close]"
+                      lineageId="Package\ETL Data to DB\S_P_Index_CSV.Outputs[Flat File Source Output].Columns[Adj Close]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\S_P_INDEX.Inputs[OLE DB Destination Input].Columns[Volume]"
+                      refId="Package\ETL Data to DB\S_P_INDEX.Inputs[OLE DB Destination Input].Columns[Volume]"
                       cachedDataType="r4"
                       cachedName="Volume"
-                      externalMetadataColumnId="Package\Data Flow Task\S_P_INDEX.Inputs[OLE DB Destination Input].ExternalColumns[SPI_Volume]"
-                      lineageId="Package\Data Flow Task\S_P_Index_CSV.Outputs[Flat File Source Output].Columns[Volume]" />
+                      externalMetadataColumnId="Package\ETL Data to DB\S_P_INDEX.Inputs[OLE DB Destination Input].ExternalColumns[SPI_Volume]"
+                      lineageId="Package\ETL Data to DB\S_P_Index_CSV.Outputs[Flat File Source Output].Columns[Volume]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\S_P_INDEX.Inputs[OLE DB Destination Input].ExternalColumns[FK_DT_Date]"
+                      refId="Package\ETL Data to DB\S_P_INDEX.Inputs[OLE DB Destination Input].ExternalColumns[FK_DT_Date]"
                       dataType="wstr"
                       length="10"
                       name="FK_DT_Date" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\S_P_INDEX.Inputs[OLE DB Destination Input].ExternalColumns[SPI_Open]"
+                      refId="Package\ETL Data to DB\S_P_INDEX.Inputs[OLE DB Destination Input].ExternalColumns[SPI_Open]"
                       dataType="r4"
                       name="SPI_Open" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\S_P_INDEX.Inputs[OLE DB Destination Input].ExternalColumns[SPI_High]"
+                      refId="Package\ETL Data to DB\S_P_INDEX.Inputs[OLE DB Destination Input].ExternalColumns[SPI_High]"
                       dataType="r4"
                       name="SPI_High" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\S_P_INDEX.Inputs[OLE DB Destination Input].ExternalColumns[SPI_Low]"
+                      refId="Package\ETL Data to DB\S_P_INDEX.Inputs[OLE DB Destination Input].ExternalColumns[SPI_Low]"
                       dataType="r4"
                       name="SPI_Low" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\S_P_INDEX.Inputs[OLE DB Destination Input].ExternalColumns[SPI_Close]"
+                      refId="Package\ETL Data to DB\S_P_INDEX.Inputs[OLE DB Destination Input].ExternalColumns[SPI_Close]"
                       dataType="r4"
                       name="SPI_Close" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\S_P_INDEX.Inputs[OLE DB Destination Input].ExternalColumns[SPI_Adj_Close]"
+                      refId="Package\ETL Data to DB\S_P_INDEX.Inputs[OLE DB Destination Input].ExternalColumns[SPI_Adj_Close]"
                       dataType="r4"
                       name="SPI_Adj_Close" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\S_P_INDEX.Inputs[OLE DB Destination Input].ExternalColumns[SPI_Volume]"
+                      refId="Package\ETL Data to DB\S_P_INDEX.Inputs[OLE DB Destination Input].ExternalColumns[SPI_Volume]"
                       dataType="r4"
                       name="SPI_Volume" />
                   </externalMetadataColumns>
@@ -1797,22 +1797,22 @@ where [refTable].[FK_DT_Date] = ?</property>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\S_P_INDEX.Outputs[OLE DB Destination Error Output]"
+                  refId="Package\ETL Data to DB\S_P_INDEX.Outputs[OLE DB Destination Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\Data Flow Task\S_P_INDEX.Inputs[OLE DB Destination Input]">
+                  synchronousInputId="Package\ETL Data to DB\S_P_INDEX.Inputs[OLE DB Destination Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\S_P_INDEX.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      refId="Package\ETL Data to DB\S_P_INDEX.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\S_P_INDEX.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      lineageId="Package\ETL Data to DB\S_P_INDEX.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\S_P_INDEX.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      refId="Package\ETL Data to DB\S_P_INDEX.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\S_P_INDEX.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\ETL Data to DB\S_P_INDEX.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -1821,7 +1821,7 @@ where [refTable].[FK_DT_Date] = ?</property>
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task\S_P_Index_CSV"
+              refId="Package\ETL Data to DB\S_P_Index_CSV"
               componentClassID="Microsoft.FlatFileSource"
               contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
               description="Flat File Source"
@@ -1841,24 +1841,24 @@ where [refTable].[FK_DT_Date] = ?</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\Data Flow Task\S_P_Index_CSV.Connections[FlatFileConnection]"
+                  refId="Package\ETL Data to DB\S_P_Index_CSV.Connections[FlatFileConnection]"
                   connectionManagerID="Package.ConnectionManagers[S_P_Index CSV]"
                   connectionManagerRefId="Package.ConnectionManagers[S_P_Index CSV]"
                   name="FlatFileConnection" />
               </connections>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\S_P_Index_CSV.Outputs[Flat File Source Output]"
+                  refId="Package\ETL Data to DB\S_P_Index_CSV.Outputs[Flat File Source Output]"
                   name="Flat File Source Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\S_P_Index_CSV.Outputs[Flat File Source Output].Columns[Date]"
+                      refId="Package\ETL Data to DB\S_P_Index_CSV.Outputs[Flat File Source Output].Columns[Date]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\S_P_Index_CSV.Outputs[Flat File Source Output].ExternalColumns[Date]"
+                      externalMetadataColumnId="Package\ETL Data to DB\S_P_Index_CSV.Outputs[Flat File Source Output].ExternalColumns[Date]"
                       length="50"
-                      lineageId="Package\Data Flow Task\S_P_Index_CSV.Outputs[Flat File Source Output].Columns[Date]"
+                      lineageId="Package\ETL Data to DB\S_P_Index_CSV.Outputs[Flat File Source Output].Columns[Date]"
                       name="Date"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -1873,12 +1873,12 @@ where [refTable].[FK_DT_Date] = ?</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Data Flow Task\S_P_Index_CSV.Outputs[Flat File Source Output].Columns[Open]"
+                      refId="Package\ETL Data to DB\S_P_Index_CSV.Outputs[Flat File Source Output].Columns[Open]"
                       dataType="r4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\S_P_Index_CSV.Outputs[Flat File Source Output].ExternalColumns[Open]"
-                      lineageId="Package\Data Flow Task\S_P_Index_CSV.Outputs[Flat File Source Output].Columns[Open]"
+                      externalMetadataColumnId="Package\ETL Data to DB\S_P_Index_CSV.Outputs[Flat File Source Output].ExternalColumns[Open]"
+                      lineageId="Package\ETL Data to DB\S_P_Index_CSV.Outputs[Flat File Source Output].Columns[Open]"
                       name="Open"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -1893,12 +1893,12 @@ where [refTable].[FK_DT_Date] = ?</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Data Flow Task\S_P_Index_CSV.Outputs[Flat File Source Output].Columns[High]"
+                      refId="Package\ETL Data to DB\S_P_Index_CSV.Outputs[Flat File Source Output].Columns[High]"
                       dataType="r4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\S_P_Index_CSV.Outputs[Flat File Source Output].ExternalColumns[High]"
-                      lineageId="Package\Data Flow Task\S_P_Index_CSV.Outputs[Flat File Source Output].Columns[High]"
+                      externalMetadataColumnId="Package\ETL Data to DB\S_P_Index_CSV.Outputs[Flat File Source Output].ExternalColumns[High]"
+                      lineageId="Package\ETL Data to DB\S_P_Index_CSV.Outputs[Flat File Source Output].Columns[High]"
                       name="High"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -1913,12 +1913,12 @@ where [refTable].[FK_DT_Date] = ?</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Data Flow Task\S_P_Index_CSV.Outputs[Flat File Source Output].Columns[Low]"
+                      refId="Package\ETL Data to DB\S_P_Index_CSV.Outputs[Flat File Source Output].Columns[Low]"
                       dataType="r4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\S_P_Index_CSV.Outputs[Flat File Source Output].ExternalColumns[Low]"
-                      lineageId="Package\Data Flow Task\S_P_Index_CSV.Outputs[Flat File Source Output].Columns[Low]"
+                      externalMetadataColumnId="Package\ETL Data to DB\S_P_Index_CSV.Outputs[Flat File Source Output].ExternalColumns[Low]"
+                      lineageId="Package\ETL Data to DB\S_P_Index_CSV.Outputs[Flat File Source Output].Columns[Low]"
                       name="Low"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -1933,12 +1933,12 @@ where [refTable].[FK_DT_Date] = ?</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Data Flow Task\S_P_Index_CSV.Outputs[Flat File Source Output].Columns[Close]"
+                      refId="Package\ETL Data to DB\S_P_Index_CSV.Outputs[Flat File Source Output].Columns[Close]"
                       dataType="r4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\S_P_Index_CSV.Outputs[Flat File Source Output].ExternalColumns[Close]"
-                      lineageId="Package\Data Flow Task\S_P_Index_CSV.Outputs[Flat File Source Output].Columns[Close]"
+                      externalMetadataColumnId="Package\ETL Data to DB\S_P_Index_CSV.Outputs[Flat File Source Output].ExternalColumns[Close]"
+                      lineageId="Package\ETL Data to DB\S_P_Index_CSV.Outputs[Flat File Source Output].Columns[Close]"
                       name="Close"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -1953,12 +1953,12 @@ where [refTable].[FK_DT_Date] = ?</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Data Flow Task\S_P_Index_CSV.Outputs[Flat File Source Output].Columns[Adj Close]"
+                      refId="Package\ETL Data to DB\S_P_Index_CSV.Outputs[Flat File Source Output].Columns[Adj Close]"
                       dataType="r4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\S_P_Index_CSV.Outputs[Flat File Source Output].ExternalColumns[Adj Close]"
-                      lineageId="Package\Data Flow Task\S_P_Index_CSV.Outputs[Flat File Source Output].Columns[Adj Close]"
+                      externalMetadataColumnId="Package\ETL Data to DB\S_P_Index_CSV.Outputs[Flat File Source Output].ExternalColumns[Adj Close]"
+                      lineageId="Package\ETL Data to DB\S_P_Index_CSV.Outputs[Flat File Source Output].Columns[Adj Close]"
                       name="Adj Close"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -1973,12 +1973,12 @@ where [refTable].[FK_DT_Date] = ?</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Data Flow Task\S_P_Index_CSV.Outputs[Flat File Source Output].Columns[Volume]"
+                      refId="Package\ETL Data to DB\S_P_Index_CSV.Outputs[Flat File Source Output].Columns[Volume]"
                       dataType="r4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\S_P_Index_CSV.Outputs[Flat File Source Output].ExternalColumns[Volume]"
-                      lineageId="Package\Data Flow Task\S_P_Index_CSV.Outputs[Flat File Source Output].Columns[Volume]"
+                      externalMetadataColumnId="Package\ETL Data to DB\S_P_Index_CSV.Outputs[Flat File Source Output].ExternalColumns[Volume]"
+                      lineageId="Package\ETL Data to DB\S_P_Index_CSV.Outputs[Flat File Source Output].Columns[Volume]"
                       name="Volume"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -1996,58 +1996,58 @@ where [refTable].[FK_DT_Date] = ?</property>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\S_P_Index_CSV.Outputs[Flat File Source Output].ExternalColumns[Date]"
+                      refId="Package\ETL Data to DB\S_P_Index_CSV.Outputs[Flat File Source Output].ExternalColumns[Date]"
                       dataType="wstr"
                       length="50"
                       name="Date" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\S_P_Index_CSV.Outputs[Flat File Source Output].ExternalColumns[Open]"
+                      refId="Package\ETL Data to DB\S_P_Index_CSV.Outputs[Flat File Source Output].ExternalColumns[Open]"
                       dataType="r4"
                       name="Open" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\S_P_Index_CSV.Outputs[Flat File Source Output].ExternalColumns[High]"
+                      refId="Package\ETL Data to DB\S_P_Index_CSV.Outputs[Flat File Source Output].ExternalColumns[High]"
                       dataType="r4"
                       name="High" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\S_P_Index_CSV.Outputs[Flat File Source Output].ExternalColumns[Low]"
+                      refId="Package\ETL Data to DB\S_P_Index_CSV.Outputs[Flat File Source Output].ExternalColumns[Low]"
                       dataType="r4"
                       name="Low" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\S_P_Index_CSV.Outputs[Flat File Source Output].ExternalColumns[Close]"
+                      refId="Package\ETL Data to DB\S_P_Index_CSV.Outputs[Flat File Source Output].ExternalColumns[Close]"
                       dataType="r4"
                       name="Close" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\S_P_Index_CSV.Outputs[Flat File Source Output].ExternalColumns[Adj Close]"
+                      refId="Package\ETL Data to DB\S_P_Index_CSV.Outputs[Flat File Source Output].ExternalColumns[Adj Close]"
                       dataType="r4"
                       name="Adj Close" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\S_P_Index_CSV.Outputs[Flat File Source Output].ExternalColumns[Volume]"
+                      refId="Package\ETL Data to DB\S_P_Index_CSV.Outputs[Flat File Source Output].ExternalColumns[Volume]"
                       dataType="r4"
                       name="Volume" />
                   </externalMetadataColumns>
                 </output>
                 <output
-                  refId="Package\Data Flow Task\S_P_Index_CSV.Outputs[Flat File Source Error Output]"
+                  refId="Package\ETL Data to DB\S_P_Index_CSV.Outputs[Flat File Source Error Output]"
                   isErrorOut="true"
                   name="Flat File Source Error Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\S_P_Index_CSV.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      refId="Package\ETL Data to DB\S_P_Index_CSV.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
                       codePage="1252"
                       dataType="text"
                       description="Flat File Source Error Output Column"
-                      lineageId="Package\Data Flow Task\S_P_Index_CSV.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      lineageId="Package\ETL Data to DB\S_P_Index_CSV.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
                       name="Flat File Source Error Output Column" />
                     <outputColumn
-                      refId="Package\Data Flow Task\S_P_Index_CSV.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      refId="Package\ETL Data to DB\S_P_Index_CSV.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\S_P_Index_CSV.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      lineageId="Package\ETL Data to DB\S_P_Index_CSV.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\S_P_Index_CSV.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      refId="Package\ETL Data to DB\S_P_Index_CSV.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\S_P_Index_CSV.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\ETL Data to DB\S_P_Index_CSV.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -2056,7 +2056,7 @@ where [refTable].[FK_DT_Date] = ?</property>
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task\THALES_STOCK"
+              refId="Package\ETL Data to DB\THALES_STOCK"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
               description="OLE DB Destination"
@@ -2113,7 +2113,7 @@ where [refTable].[FK_DT_Date] = ?</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\Data Flow Task\THALES_STOCK.Connections[OleDbConnection]"
+                  refId="Package\ETL Data to DB\THALES_STOCK.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[MSI.ThalesStockPredictor]"
                   connectionManagerRefId="Package.ConnectionManagers[MSI.ThalesStockPredictor]"
                   description="The OLE DB runtime connection used to access the database."
@@ -2121,85 +2121,85 @@ where [refTable].[FK_DT_Date] = ?</property>
               </connections>
               <inputs>
                 <input
-                  refId="Package\Data Flow Task\THALES_STOCK.Inputs[OLE DB Destination Input]"
+                  refId="Package\ETL Data to DB\THALES_STOCK.Inputs[OLE DB Destination Input]"
                   errorOrTruncationOperation="Insert"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\THALES_STOCK.Inputs[OLE DB Destination Input].Columns[Date]"
+                      refId="Package\ETL Data to DB\THALES_STOCK.Inputs[OLE DB Destination Input].Columns[Date]"
                       cachedDataType="wstr"
                       cachedLength="50"
                       cachedName="Date"
-                      externalMetadataColumnId="Package\Data Flow Task\THALES_STOCK.Inputs[OLE DB Destination Input].ExternalColumns[FK_DT_Date]"
-                      lineageId="Package\Data Flow Task\Thales_Stock_CSV.Outputs[Flat File Source Output].Columns[Date]" />
+                      externalMetadataColumnId="Package\ETL Data to DB\THALES_STOCK.Inputs[OLE DB Destination Input].ExternalColumns[FK_DT_Date]"
+                      lineageId="Package\ETL Data to DB\Thales_Stock_CSV.Outputs[Flat File Source Output].Columns[Date]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\THALES_STOCK.Inputs[OLE DB Destination Input].Columns[Open]"
+                      refId="Package\ETL Data to DB\THALES_STOCK.Inputs[OLE DB Destination Input].Columns[Open]"
                       cachedDataType="r4"
                       cachedName="Open"
-                      externalMetadataColumnId="Package\Data Flow Task\THALES_STOCK.Inputs[OLE DB Destination Input].ExternalColumns[THALES_Open]"
-                      lineageId="Package\Data Flow Task\Thales_Stock_CSV.Outputs[Flat File Source Output].Columns[Open]" />
+                      externalMetadataColumnId="Package\ETL Data to DB\THALES_STOCK.Inputs[OLE DB Destination Input].ExternalColumns[THALES_Open]"
+                      lineageId="Package\ETL Data to DB\Thales_Stock_CSV.Outputs[Flat File Source Output].Columns[Open]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\THALES_STOCK.Inputs[OLE DB Destination Input].Columns[High]"
+                      refId="Package\ETL Data to DB\THALES_STOCK.Inputs[OLE DB Destination Input].Columns[High]"
                       cachedDataType="r4"
                       cachedName="High"
-                      externalMetadataColumnId="Package\Data Flow Task\THALES_STOCK.Inputs[OLE DB Destination Input].ExternalColumns[THALES_High]"
-                      lineageId="Package\Data Flow Task\Thales_Stock_CSV.Outputs[Flat File Source Output].Columns[High]" />
+                      externalMetadataColumnId="Package\ETL Data to DB\THALES_STOCK.Inputs[OLE DB Destination Input].ExternalColumns[THALES_High]"
+                      lineageId="Package\ETL Data to DB\Thales_Stock_CSV.Outputs[Flat File Source Output].Columns[High]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\THALES_STOCK.Inputs[OLE DB Destination Input].Columns[Low]"
+                      refId="Package\ETL Data to DB\THALES_STOCK.Inputs[OLE DB Destination Input].Columns[Low]"
                       cachedDataType="r4"
                       cachedName="Low"
-                      externalMetadataColumnId="Package\Data Flow Task\THALES_STOCK.Inputs[OLE DB Destination Input].ExternalColumns[THALES_Low]"
-                      lineageId="Package\Data Flow Task\Thales_Stock_CSV.Outputs[Flat File Source Output].Columns[Low]" />
+                      externalMetadataColumnId="Package\ETL Data to DB\THALES_STOCK.Inputs[OLE DB Destination Input].ExternalColumns[THALES_Low]"
+                      lineageId="Package\ETL Data to DB\Thales_Stock_CSV.Outputs[Flat File Source Output].Columns[Low]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\THALES_STOCK.Inputs[OLE DB Destination Input].Columns[Close]"
+                      refId="Package\ETL Data to DB\THALES_STOCK.Inputs[OLE DB Destination Input].Columns[Close]"
                       cachedDataType="r4"
                       cachedName="Close"
-                      externalMetadataColumnId="Package\Data Flow Task\THALES_STOCK.Inputs[OLE DB Destination Input].ExternalColumns[THALES_Close]"
-                      lineageId="Package\Data Flow Task\Thales_Stock_CSV.Outputs[Flat File Source Output].Columns[Close]" />
+                      externalMetadataColumnId="Package\ETL Data to DB\THALES_STOCK.Inputs[OLE DB Destination Input].ExternalColumns[THALES_Close]"
+                      lineageId="Package\ETL Data to DB\Thales_Stock_CSV.Outputs[Flat File Source Output].Columns[Close]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\THALES_STOCK.Inputs[OLE DB Destination Input].Columns[Adj Close]"
+                      refId="Package\ETL Data to DB\THALES_STOCK.Inputs[OLE DB Destination Input].Columns[Adj Close]"
                       cachedDataType="r4"
                       cachedName="Adj Close"
-                      externalMetadataColumnId="Package\Data Flow Task\THALES_STOCK.Inputs[OLE DB Destination Input].ExternalColumns[THALES_Adj_Close]"
-                      lineageId="Package\Data Flow Task\Thales_Stock_CSV.Outputs[Flat File Source Output].Columns[Adj Close]" />
+                      externalMetadataColumnId="Package\ETL Data to DB\THALES_STOCK.Inputs[OLE DB Destination Input].ExternalColumns[THALES_Adj_Close]"
+                      lineageId="Package\ETL Data to DB\Thales_Stock_CSV.Outputs[Flat File Source Output].Columns[Adj Close]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\THALES_STOCK.Inputs[OLE DB Destination Input].Columns[Volume]"
+                      refId="Package\ETL Data to DB\THALES_STOCK.Inputs[OLE DB Destination Input].Columns[Volume]"
                       cachedDataType="r4"
                       cachedName="Volume"
-                      externalMetadataColumnId="Package\Data Flow Task\THALES_STOCK.Inputs[OLE DB Destination Input].ExternalColumns[THALES_Volume]"
-                      lineageId="Package\Data Flow Task\Thales_Stock_CSV.Outputs[Flat File Source Output].Columns[Volume]" />
+                      externalMetadataColumnId="Package\ETL Data to DB\THALES_STOCK.Inputs[OLE DB Destination Input].ExternalColumns[THALES_Volume]"
+                      lineageId="Package\ETL Data to DB\Thales_Stock_CSV.Outputs[Flat File Source Output].Columns[Volume]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\THALES_STOCK.Inputs[OLE DB Destination Input].ExternalColumns[FK_DT_Date]"
+                      refId="Package\ETL Data to DB\THALES_STOCK.Inputs[OLE DB Destination Input].ExternalColumns[FK_DT_Date]"
                       dataType="wstr"
                       length="10"
                       name="FK_DT_Date" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\THALES_STOCK.Inputs[OLE DB Destination Input].ExternalColumns[THALES_Open]"
+                      refId="Package\ETL Data to DB\THALES_STOCK.Inputs[OLE DB Destination Input].ExternalColumns[THALES_Open]"
                       dataType="r4"
                       name="THALES_Open" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\THALES_STOCK.Inputs[OLE DB Destination Input].ExternalColumns[THALES_High]"
+                      refId="Package\ETL Data to DB\THALES_STOCK.Inputs[OLE DB Destination Input].ExternalColumns[THALES_High]"
                       dataType="r4"
                       name="THALES_High" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\THALES_STOCK.Inputs[OLE DB Destination Input].ExternalColumns[THALES_Low]"
+                      refId="Package\ETL Data to DB\THALES_STOCK.Inputs[OLE DB Destination Input].ExternalColumns[THALES_Low]"
                       dataType="r4"
                       name="THALES_Low" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\THALES_STOCK.Inputs[OLE DB Destination Input].ExternalColumns[THALES_Close]"
+                      refId="Package\ETL Data to DB\THALES_STOCK.Inputs[OLE DB Destination Input].ExternalColumns[THALES_Close]"
                       dataType="r4"
                       name="THALES_Close" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\THALES_STOCK.Inputs[OLE DB Destination Input].ExternalColumns[THALES_Adj_Close]"
+                      refId="Package\ETL Data to DB\THALES_STOCK.Inputs[OLE DB Destination Input].ExternalColumns[THALES_Adj_Close]"
                       dataType="r4"
                       name="THALES_Adj_Close" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\THALES_STOCK.Inputs[OLE DB Destination Input].ExternalColumns[THALES_Volume]"
+                      refId="Package\ETL Data to DB\THALES_STOCK.Inputs[OLE DB Destination Input].ExternalColumns[THALES_Volume]"
                       dataType="r4"
                       name="THALES_Volume" />
                   </externalMetadataColumns>
@@ -2207,22 +2207,22 @@ where [refTable].[FK_DT_Date] = ?</property>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\THALES_STOCK.Outputs[OLE DB Destination Error Output]"
+                  refId="Package\ETL Data to DB\THALES_STOCK.Outputs[OLE DB Destination Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\Data Flow Task\THALES_STOCK.Inputs[OLE DB Destination Input]">
+                  synchronousInputId="Package\ETL Data to DB\THALES_STOCK.Inputs[OLE DB Destination Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\THALES_STOCK.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      refId="Package\ETL Data to DB\THALES_STOCK.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\THALES_STOCK.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      lineageId="Package\ETL Data to DB\THALES_STOCK.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\THALES_STOCK.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      refId="Package\ETL Data to DB\THALES_STOCK.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\THALES_STOCK.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\ETL Data to DB\THALES_STOCK.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -2231,7 +2231,7 @@ where [refTable].[FK_DT_Date] = ?</property>
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task\Thales_Stock_CSV"
+              refId="Package\ETL Data to DB\Thales_Stock_CSV"
               componentClassID="Microsoft.FlatFileSource"
               contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
               description="Flat File Source"
@@ -2251,24 +2251,24 @@ where [refTable].[FK_DT_Date] = ?</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\Data Flow Task\Thales_Stock_CSV.Connections[FlatFileConnection]"
+                  refId="Package\ETL Data to DB\Thales_Stock_CSV.Connections[FlatFileConnection]"
                   connectionManagerID="Package.ConnectionManagers[Thales_Stock CSV]"
                   connectionManagerRefId="Package.ConnectionManagers[Thales_Stock CSV]"
                   name="FlatFileConnection" />
               </connections>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\Thales_Stock_CSV.Outputs[Flat File Source Output]"
+                  refId="Package\ETL Data to DB\Thales_Stock_CSV.Outputs[Flat File Source Output]"
                   name="Flat File Source Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Thales_Stock_CSV.Outputs[Flat File Source Output].Columns[Date]"
+                      refId="Package\ETL Data to DB\Thales_Stock_CSV.Outputs[Flat File Source Output].Columns[Date]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Thales_Stock_CSV.Outputs[Flat File Source Output].ExternalColumns[Date]"
+                      externalMetadataColumnId="Package\ETL Data to DB\Thales_Stock_CSV.Outputs[Flat File Source Output].ExternalColumns[Date]"
                       length="50"
-                      lineageId="Package\Data Flow Task\Thales_Stock_CSV.Outputs[Flat File Source Output].Columns[Date]"
+                      lineageId="Package\ETL Data to DB\Thales_Stock_CSV.Outputs[Flat File Source Output].Columns[Date]"
                       name="Date"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -2283,12 +2283,12 @@ where [refTable].[FK_DT_Date] = ?</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Data Flow Task\Thales_Stock_CSV.Outputs[Flat File Source Output].Columns[Open]"
+                      refId="Package\ETL Data to DB\Thales_Stock_CSV.Outputs[Flat File Source Output].Columns[Open]"
                       dataType="r4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Thales_Stock_CSV.Outputs[Flat File Source Output].ExternalColumns[Open]"
-                      lineageId="Package\Data Flow Task\Thales_Stock_CSV.Outputs[Flat File Source Output].Columns[Open]"
+                      externalMetadataColumnId="Package\ETL Data to DB\Thales_Stock_CSV.Outputs[Flat File Source Output].ExternalColumns[Open]"
+                      lineageId="Package\ETL Data to DB\Thales_Stock_CSV.Outputs[Flat File Source Output].Columns[Open]"
                       name="Open"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -2303,12 +2303,12 @@ where [refTable].[FK_DT_Date] = ?</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Data Flow Task\Thales_Stock_CSV.Outputs[Flat File Source Output].Columns[High]"
+                      refId="Package\ETL Data to DB\Thales_Stock_CSV.Outputs[Flat File Source Output].Columns[High]"
                       dataType="r4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Thales_Stock_CSV.Outputs[Flat File Source Output].ExternalColumns[High]"
-                      lineageId="Package\Data Flow Task\Thales_Stock_CSV.Outputs[Flat File Source Output].Columns[High]"
+                      externalMetadataColumnId="Package\ETL Data to DB\Thales_Stock_CSV.Outputs[Flat File Source Output].ExternalColumns[High]"
+                      lineageId="Package\ETL Data to DB\Thales_Stock_CSV.Outputs[Flat File Source Output].Columns[High]"
                       name="High"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -2323,12 +2323,12 @@ where [refTable].[FK_DT_Date] = ?</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Data Flow Task\Thales_Stock_CSV.Outputs[Flat File Source Output].Columns[Low]"
+                      refId="Package\ETL Data to DB\Thales_Stock_CSV.Outputs[Flat File Source Output].Columns[Low]"
                       dataType="r4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Thales_Stock_CSV.Outputs[Flat File Source Output].ExternalColumns[Low]"
-                      lineageId="Package\Data Flow Task\Thales_Stock_CSV.Outputs[Flat File Source Output].Columns[Low]"
+                      externalMetadataColumnId="Package\ETL Data to DB\Thales_Stock_CSV.Outputs[Flat File Source Output].ExternalColumns[Low]"
+                      lineageId="Package\ETL Data to DB\Thales_Stock_CSV.Outputs[Flat File Source Output].Columns[Low]"
                       name="Low"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -2343,12 +2343,12 @@ where [refTable].[FK_DT_Date] = ?</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Data Flow Task\Thales_Stock_CSV.Outputs[Flat File Source Output].Columns[Close]"
+                      refId="Package\ETL Data to DB\Thales_Stock_CSV.Outputs[Flat File Source Output].Columns[Close]"
                       dataType="r4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Thales_Stock_CSV.Outputs[Flat File Source Output].ExternalColumns[Close]"
-                      lineageId="Package\Data Flow Task\Thales_Stock_CSV.Outputs[Flat File Source Output].Columns[Close]"
+                      externalMetadataColumnId="Package\ETL Data to DB\Thales_Stock_CSV.Outputs[Flat File Source Output].ExternalColumns[Close]"
+                      lineageId="Package\ETL Data to DB\Thales_Stock_CSV.Outputs[Flat File Source Output].Columns[Close]"
                       name="Close"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -2363,12 +2363,12 @@ where [refTable].[FK_DT_Date] = ?</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Data Flow Task\Thales_Stock_CSV.Outputs[Flat File Source Output].Columns[Adj Close]"
+                      refId="Package\ETL Data to DB\Thales_Stock_CSV.Outputs[Flat File Source Output].Columns[Adj Close]"
                       dataType="r4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Thales_Stock_CSV.Outputs[Flat File Source Output].ExternalColumns[Adj Close]"
-                      lineageId="Package\Data Flow Task\Thales_Stock_CSV.Outputs[Flat File Source Output].Columns[Adj Close]"
+                      externalMetadataColumnId="Package\ETL Data to DB\Thales_Stock_CSV.Outputs[Flat File Source Output].ExternalColumns[Adj Close]"
+                      lineageId="Package\ETL Data to DB\Thales_Stock_CSV.Outputs[Flat File Source Output].Columns[Adj Close]"
                       name="Adj Close"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -2383,12 +2383,12 @@ where [refTable].[FK_DT_Date] = ?</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Data Flow Task\Thales_Stock_CSV.Outputs[Flat File Source Output].Columns[Volume]"
+                      refId="Package\ETL Data to DB\Thales_Stock_CSV.Outputs[Flat File Source Output].Columns[Volume]"
                       dataType="r4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Thales_Stock_CSV.Outputs[Flat File Source Output].ExternalColumns[Volume]"
-                      lineageId="Package\Data Flow Task\Thales_Stock_CSV.Outputs[Flat File Source Output].Columns[Volume]"
+                      externalMetadataColumnId="Package\ETL Data to DB\Thales_Stock_CSV.Outputs[Flat File Source Output].ExternalColumns[Volume]"
+                      lineageId="Package\ETL Data to DB\Thales_Stock_CSV.Outputs[Flat File Source Output].Columns[Volume]"
                       name="Volume"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -2406,58 +2406,58 @@ where [refTable].[FK_DT_Date] = ?</property>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Thales_Stock_CSV.Outputs[Flat File Source Output].ExternalColumns[Date]"
+                      refId="Package\ETL Data to DB\Thales_Stock_CSV.Outputs[Flat File Source Output].ExternalColumns[Date]"
                       dataType="wstr"
                       length="50"
                       name="Date" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Thales_Stock_CSV.Outputs[Flat File Source Output].ExternalColumns[Open]"
+                      refId="Package\ETL Data to DB\Thales_Stock_CSV.Outputs[Flat File Source Output].ExternalColumns[Open]"
                       dataType="r4"
                       name="Open" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Thales_Stock_CSV.Outputs[Flat File Source Output].ExternalColumns[High]"
+                      refId="Package\ETL Data to DB\Thales_Stock_CSV.Outputs[Flat File Source Output].ExternalColumns[High]"
                       dataType="r4"
                       name="High" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Thales_Stock_CSV.Outputs[Flat File Source Output].ExternalColumns[Low]"
+                      refId="Package\ETL Data to DB\Thales_Stock_CSV.Outputs[Flat File Source Output].ExternalColumns[Low]"
                       dataType="r4"
                       name="Low" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Thales_Stock_CSV.Outputs[Flat File Source Output].ExternalColumns[Close]"
+                      refId="Package\ETL Data to DB\Thales_Stock_CSV.Outputs[Flat File Source Output].ExternalColumns[Close]"
                       dataType="r4"
                       name="Close" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Thales_Stock_CSV.Outputs[Flat File Source Output].ExternalColumns[Adj Close]"
+                      refId="Package\ETL Data to DB\Thales_Stock_CSV.Outputs[Flat File Source Output].ExternalColumns[Adj Close]"
                       dataType="r4"
                       name="Adj Close" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Thales_Stock_CSV.Outputs[Flat File Source Output].ExternalColumns[Volume]"
+                      refId="Package\ETL Data to DB\Thales_Stock_CSV.Outputs[Flat File Source Output].ExternalColumns[Volume]"
                       dataType="r4"
                       name="Volume" />
                   </externalMetadataColumns>
                 </output>
                 <output
-                  refId="Package\Data Flow Task\Thales_Stock_CSV.Outputs[Flat File Source Error Output]"
+                  refId="Package\ETL Data to DB\Thales_Stock_CSV.Outputs[Flat File Source Error Output]"
                   isErrorOut="true"
                   name="Flat File Source Error Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Thales_Stock_CSV.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      refId="Package\ETL Data to DB\Thales_Stock_CSV.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
                       codePage="1252"
                       dataType="text"
                       description="Flat File Source Error Output Column"
-                      lineageId="Package\Data Flow Task\Thales_Stock_CSV.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      lineageId="Package\ETL Data to DB\Thales_Stock_CSV.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
                       name="Flat File Source Error Output Column" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Thales_Stock_CSV.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      refId="Package\ETL Data to DB\Thales_Stock_CSV.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Thales_Stock_CSV.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      lineageId="Package\ETL Data to DB\Thales_Stock_CSV.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Thales_Stock_CSV.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      refId="Package\ETL Data to DB\Thales_Stock_CSV.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Thales_Stock_CSV.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\ETL Data to DB\Thales_Stock_CSV.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -2466,7 +2466,7 @@ where [refTable].[FK_DT_Date] = ?</property>
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task\THA_Lookup"
+              refId="Package\ETL Data to DB\THA_Lookup"
               componentClassID="Microsoft.Lookup"
               contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
               description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
@@ -2522,7 +2522,7 @@ where [refTable].[FK_DT_Date] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Data Flow Task\Thales_Stock_CSV.Outputs[Flat File Source Output].Columns[Date]};</property>
+                  name="ParameterMap">#{Package\ETL Data to DB\Thales_Stock_CSV.Outputs[Flat File Source Output].Columns[Date]};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -2534,7 +2534,7 @@ where [refTable].[FK_DT_Date] = ?</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\Data Flow Task\THA_Lookup.Connections[OleDbConnection]"
+                  refId="Package\ETL Data to DB\THA_Lookup.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[MSI.ThalesStockPredictor]"
                   connectionManagerRefId="Package.ConnectionManagers[MSI.ThalesStockPredictor]"
                   description="Connection manager used to access lookup data."
@@ -2542,15 +2542,15 @@ where [refTable].[FK_DT_Date] = ?</property>
               </connections>
               <inputs>
                 <input
-                  refId="Package\Data Flow Task\THA_Lookup.Inputs[Lookup Input]"
+                  refId="Package\ETL Data to DB\THA_Lookup.Inputs[Lookup Input]"
                   name="Lookup Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\THA_Lookup.Inputs[Lookup Input].Columns[Date]"
+                      refId="Package\ETL Data to DB\THA_Lookup.Inputs[Lookup Input].Columns[Date]"
                       cachedDataType="wstr"
                       cachedLength="50"
                       cachedName="Date"
-                      lineageId="Package\Data Flow Task\Thales_Stock_CSV.Outputs[Flat File Source Output].Columns[Date]">
+                      lineageId="Package\ETL Data to DB\Thales_Stock_CSV.Outputs[Flat File Source Output].Columns[Date]">
                       <properties>
                         <property
                           dataType="System.String"
@@ -2568,38 +2568,38 @@ where [refTable].[FK_DT_Date] = ?</property>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\THA_Lookup.Outputs[Lookup Match Output]"
+                  refId="Package\ETL Data to DB\THA_Lookup.Outputs[Lookup Match Output]"
                   errorOrTruncationOperation="Lookup"
                   exclusionGroup="1"
                   name="Lookup Match Output"
-                  synchronousInputId="Package\Data Flow Task\THA_Lookup.Inputs[Lookup Input]">
+                  synchronousInputId="Package\ETL Data to DB\THA_Lookup.Inputs[Lookup Input]">
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Data Flow Task\THA_Lookup.Outputs[Lookup No Match Output]"
+                  refId="Package\ETL Data to DB\THA_Lookup.Outputs[Lookup No Match Output]"
                   description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
                   exclusionGroup="1"
                   name="Lookup No Match Output"
-                  synchronousInputId="Package\Data Flow Task\THA_Lookup.Inputs[Lookup Input]">
+                  synchronousInputId="Package\ETL Data to DB\THA_Lookup.Inputs[Lookup Input]">
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Data Flow Task\THA_Lookup.Outputs[Lookup Error Output]"
+                  refId="Package\ETL Data to DB\THA_Lookup.Outputs[Lookup Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Lookup Error Output"
-                  synchronousInputId="Package\Data Flow Task\THA_Lookup.Inputs[Lookup Input]">
+                  synchronousInputId="Package\ETL Data to DB\THA_Lookup.Inputs[Lookup Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\THA_Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      refId="Package\ETL Data to DB\THA_Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\THA_Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      lineageId="Package\ETL Data to DB\THA_Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\THA_Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      refId="Package\ETL Data to DB\THA_Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\THA_Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\ETL Data to DB\THA_Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -2610,45 +2610,45 @@ where [refTable].[FK_DT_Date] = ?</property>
           </components>
           <paths>
             <path
-              refId="Package\Data Flow Task.Paths[Flat File Source Output]"
-              endId="Package\Data Flow Task\THA_Lookup.Inputs[Lookup Input]"
+              refId="Package\ETL Data to DB.Paths[Flat File Source Output]"
+              endId="Package\ETL Data to DB\THA_Lookup.Inputs[Lookup Input]"
               name="Flat File Source Output"
-              startId="Package\Data Flow Task\Thales_Stock_CSV.Outputs[Flat File Source Output]" />
+              startId="Package\ETL Data to DB\Thales_Stock_CSV.Outputs[Flat File Source Output]" />
             <path
-              refId="Package\Data Flow Task.Paths[Flat File Source Output1]"
-              endId="Package\Data Flow Task\SPI_Lookup.Inputs[Lookup Input]"
+              refId="Package\ETL Data to DB.Paths[Flat File Source Output1]"
+              endId="Package\ETL Data to DB\SPI_Lookup.Inputs[Lookup Input]"
               name="Flat File Source Output"
-              startId="Package\Data Flow Task\S_P_Index_CSV.Outputs[Flat File Source Output]" />
+              startId="Package\ETL Data to DB\S_P_Index_CSV.Outputs[Flat File Source Output]" />
             <path
-              refId="Package\Data Flow Task.Paths[Flat File Source Output2]"
-              endId="Package\Data Flow Task\FRA_Lookup.Inputs[Lookup Input]"
+              refId="Package\ETL Data to DB.Paths[Flat File Source Output2]"
+              endId="Package\ETL Data to DB\FRA_Lookup.Inputs[Lookup Input]"
               name="Flat File Source Output"
-              startId="Package\Data Flow Task\France_Index_CSV.Outputs[Flat File Source Output]" />
+              startId="Package\ETL Data to DB\France_Index_CSV.Outputs[Flat File Source Output]" />
             <path
-              refId="Package\Data Flow Task.Paths[Flat File Source Output3]"
-              endId="Package\Data Flow Task\EUR_Lookup.Inputs[Lookup Input]"
+              refId="Package\ETL Data to DB.Paths[Flat File Source Output3]"
+              endId="Package\ETL Data to DB\EUR_Lookup.Inputs[Lookup Input]"
               name="Flat File Source Output"
-              startId="Package\Data Flow Task\Euro_Index_CSV.Outputs[Flat File Source Output]" />
+              startId="Package\ETL Data to DB\Euro_Index_CSV.Outputs[Flat File Source Output]" />
             <path
-              refId="Package\Data Flow Task.Paths[Lookup No Match Output]"
-              endId="Package\Data Flow Task\THALES_STOCK.Inputs[OLE DB Destination Input]"
+              refId="Package\ETL Data to DB.Paths[Lookup No Match Output]"
+              endId="Package\ETL Data to DB\THALES_STOCK.Inputs[OLE DB Destination Input]"
               name="Lookup No Match Output"
-              startId="Package\Data Flow Task\THA_Lookup.Outputs[Lookup No Match Output]" />
+              startId="Package\ETL Data to DB\THA_Lookup.Outputs[Lookup No Match Output]" />
             <path
-              refId="Package\Data Flow Task.Paths[Lookup No Match Output1]"
-              endId="Package\Data Flow Task\S_P_INDEX.Inputs[OLE DB Destination Input]"
+              refId="Package\ETL Data to DB.Paths[Lookup No Match Output1]"
+              endId="Package\ETL Data to DB\S_P_INDEX.Inputs[OLE DB Destination Input]"
               name="Lookup No Match Output"
-              startId="Package\Data Flow Task\SPI_Lookup.Outputs[Lookup No Match Output]" />
+              startId="Package\ETL Data to DB\SPI_Lookup.Outputs[Lookup No Match Output]" />
             <path
-              refId="Package\Data Flow Task.Paths[Lookup No Match Output2]"
-              endId="Package\Data Flow Task\FRA_INDEX.Inputs[OLE DB Destination Input]"
+              refId="Package\ETL Data to DB.Paths[Lookup No Match Output2]"
+              endId="Package\ETL Data to DB\FRA_INDEX.Inputs[OLE DB Destination Input]"
               name="Lookup No Match Output"
-              startId="Package\Data Flow Task\FRA_Lookup.Outputs[Lookup No Match Output]" />
+              startId="Package\ETL Data to DB\FRA_Lookup.Outputs[Lookup No Match Output]" />
             <path
-              refId="Package\Data Flow Task.Paths[Lookup No Match Output3]"
-              endId="Package\Data Flow Task\EURO_INDEX.Inputs[OLE DB Destination Input]"
+              refId="Package\ETL Data to DB.Paths[Lookup No Match Output3]"
+              endId="Package\ETL Data to DB\EURO_INDEX.Inputs[OLE DB Destination Input]"
               name="Lookup No Match Output"
-              startId="Package\Data Flow Task\EUR_Lookup.Outputs[Lookup No Match Output]" />
+              startId="Package\ETL Data to DB\EUR_Lookup.Outputs[Lookup No Match Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -2693,7 +2693,7 @@ where [refTable].[FK_DT_Date] = ?</property>
       DTS:From="Package\CSVDownload&amp;Cleaning"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 1"
-      DTS:To="Package\Data Flow Task" />
+      DTS:To="Package\ETL Data to DB" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -2708,8 +2708,8 @@ where [refTable].[FK_DT_Date] = ?</property>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="155,42"
-          Id="Package\Data Flow Task"
+          Size="156,42"
+          Id="Package\ETL Data to DB"
           TopLeft="162,456" />
         <NodeLayout
           Size="169,42"
@@ -2755,7 +2755,7 @@ where [refTable].[FK_DT_Date] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="241.5,339">
+          TopLeft="241.75,339">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2779,20 +2779,20 @@ where [refTable].[FK_DT_Date] = ?</property>
     </LayoutInfo>
   </Package>
   <TaskHost
-    design-time-name="Package\Data Flow Task">
+    design-time-name="Package\ETL Data to DB">
     <LayoutInfo>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="143,42"
-          Id="Package\Data Flow Task\THA_Lookup"
+          Id="Package\ETL Data to DB\THA_Lookup"
           TopLeft="36,319" />
         <NodeLayout
           Size="174,42"
-          Id="Package\Data Flow Task\Thales_Stock_CSV"
+          Id="Package\ETL Data to DB\Thales_Stock_CSV"
           TopLeft="19,143" />
         <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Flat File Source Output]"
+          Id="Package\ETL Data to DB.Paths[Flat File Source Output]"
           TopLeft="106.75,185">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -2815,10 +2815,10 @@ where [refTable].[FK_DT_Date] = ?</property>
         </EdgeLayout>
         <NodeLayout
           Size="166,42"
-          Id="Package\Data Flow Task\THALES_STOCK"
+          Id="Package\ETL Data to DB\THALES_STOCK"
           TopLeft="24,497" />
         <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Lookup No Match Output]"
+          Id="Package\ETL Data to DB.Paths[Lookup No Match Output]"
           TopLeft="107.25,361">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -2843,18 +2843,18 @@ where [refTable].[FK_DT_Date] = ?</property>
         </EdgeLayout>
         <NodeLayout
           Size="139,42"
-          Id="Package\Data Flow Task\S_P_INDEX"
+          Id="Package\ETL Data to DB\S_P_INDEX"
           TopLeft="258,494" />
         <NodeLayout
           Size="161,42"
-          Id="Package\Data Flow Task\S_P_Index_CSV"
+          Id="Package\ETL Data to DB\S_P_Index_CSV"
           TopLeft="246,142" />
         <NodeLayout
           Size="139,42"
-          Id="Package\Data Flow Task\SPI_Lookup"
+          Id="Package\ETL Data to DB\SPI_Lookup"
           TopLeft="258,314" />
         <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Flat File Source Output1]"
+          Id="Package\ETL Data to DB.Paths[Flat File Source Output1]"
           TopLeft="327,184">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -2876,7 +2876,7 @@ where [refTable].[FK_DT_Date] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Lookup No Match Output1]"
+          Id="Package\ETL Data to DB.Paths[Lookup No Match Output1]"
           TopLeft="327.5,356">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -2901,14 +2901,14 @@ where [refTable].[FK_DT_Date] = ?</property>
         </EdgeLayout>
         <NodeLayout
           Size="143,42"
-          Id="Package\Data Flow Task\FRA_Lookup"
+          Id="Package\ETL Data to DB\FRA_Lookup"
           TopLeft="474,319" />
         <NodeLayout
           Size="175,42"
-          Id="Package\Data Flow Task\France_Index_CSV"
+          Id="Package\ETL Data to DB\France_Index_CSV"
           TopLeft="457,143" />
         <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Flat File Source Output2]"
+          Id="Package\ETL Data to DB.Paths[Flat File Source Output2]"
           TopLeft="545,185">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -2931,10 +2931,10 @@ where [refTable].[FK_DT_Date] = ?</property>
         </EdgeLayout>
         <NodeLayout
           Size="141,42"
-          Id="Package\Data Flow Task\FRA_INDEX"
+          Id="Package\ETL Data to DB\FRA_INDEX"
           TopLeft="475,491" />
         <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Lookup No Match Output2]"
+          Id="Package\ETL Data to DB.Paths[Lookup No Match Output2]"
           TopLeft="545.5,361">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -2959,18 +2959,18 @@ where [refTable].[FK_DT_Date] = ?</property>
         </EdgeLayout>
         <NodeLayout
           Size="144,42"
-          Id="Package\Data Flow Task\EUR_Lookup"
+          Id="Package\ETL Data to DB\EUR_Lookup"
           TopLeft="687,321" />
         <NodeLayout
           Size="164,42"
-          Id="Package\Data Flow Task\Euro_Index_CSV"
+          Id="Package\ETL Data to DB\Euro_Index_CSV"
           TopLeft="670,145" />
         <NodeLayout
           Size="150,42"
-          Id="Package\Data Flow Task\EURO_INDEX"
+          Id="Package\ETL Data to DB\EURO_INDEX"
           TopLeft="688,493" />
         <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Flat File Source Output3]"
+          Id="Package\ETL Data to DB.Paths[Flat File Source Output3]"
           TopLeft="755.5,187">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -2992,7 +2992,7 @@ where [refTable].[FK_DT_Date] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Lookup No Match Output3]"
+          Id="Package\ETL Data to DB.Paths[Lookup No Match Output3]"
           TopLeft="761,363">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -3019,7 +3019,7 @@ where [refTable].[FK_DT_Date] = ?</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\THA_Lookup">
+    design-time-name="Package\ETL Data to DB\THA_Lookup">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
@@ -3042,7 +3042,7 @@ where [refTable].[FK_DT_Date] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\THALES_STOCK">
+    design-time-name="Package\ETL Data to DB\THALES_STOCK">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -3055,7 +3055,7 @@ where [refTable].[FK_DT_Date] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\S_P_INDEX">
+    design-time-name="Package\ETL Data to DB\S_P_INDEX">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -3068,7 +3068,7 @@ where [refTable].[FK_DT_Date] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\SPI_Lookup">
+    design-time-name="Package\ETL Data to DB\SPI_Lookup">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
@@ -3091,7 +3091,7 @@ where [refTable].[FK_DT_Date] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\FRA_Lookup">
+    design-time-name="Package\ETL Data to DB\FRA_Lookup">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
@@ -3114,7 +3114,7 @@ where [refTable].[FK_DT_Date] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\FRA_INDEX">
+    design-time-name="Package\ETL Data to DB\FRA_INDEX">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -3127,7 +3127,7 @@ where [refTable].[FK_DT_Date] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\EUR_Lookup">
+    design-time-name="Package\ETL Data to DB\EUR_Lookup">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
@@ -3150,7 +3150,7 @@ where [refTable].[FK_DT_Date] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\EURO_INDEX">
+    design-time-name="Package\ETL Data to DB\EURO_INDEX">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
