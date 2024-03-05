@@ -45,11 +45,23 @@ Model_Norm <- as.data.frame(Model_Data)
 # Remove non-numeric columns if any (like Dates)
 df_numeric <- Model_Norm[sapply(Model_Norm, is.numeric)]
 
-# Calculate correlation
-correlation_matrix <- cor(df_numeric)
+# copy df_numeric for null removal
+df_naomit <- as.data.frame(df_numeric)
 
-# View correlation with THA_NextDay_Close
+# Calculate correlation with NA
+correlation_matrix <- cor(df_numeric)
+# View correlation with THA_NextDay_Close with NA
 correlation_with_target <- correlation_matrix[, "THA_NextDay_Close"]
+
+# Calculate correlation - ignore NA
+correlation_matrixNA <- cor(df_numeric, use = "complete.obs")  # ignores NA values
+# View correlation with THA_NextDay_Close - ignore NA
+correlation_with_targetNA <- correlation_matrixNA[, "THA_NextDay_Close"]
+
+# Calculate correlation - Omit NA
+correlation_matrixOmitOmitNA <- cor(df_naomit)  # ignores NA values
+# View correlation with THA_NextDay_Close - ignore NA
+correlation_with_targetOmitNA <- correlation_matrixOmitNA[, "THA_NextDay_Close"]
 
 # Create correlation matrix
 corrgram(df_numeric, order=TRUE, color.legend=TRUE)
