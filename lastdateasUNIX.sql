@@ -17,8 +17,8 @@ FROM(
     ) AS x
 ) AS y
 
--- Delete data from all tables code while SSIS isn't set yet
-DELETE FROM EURO_INDEX;
-DELETE FROM FRANCE_INDEX;
-DELETE FROM S_P_INDEX;
-DELETE FROM THALES_STOCK;
+---- Delete data from all tables code while SSIS isn't set yet
+--DELETE FROM EURO_INDEX;
+--DELETE FROM FRANCE_INDEX;
+--DELETE FROM S_P_INDEX;
+--DELETE FROM THALES_STOCK;
