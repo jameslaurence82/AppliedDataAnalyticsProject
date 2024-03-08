@@ -212,25 +212,11 @@ rm(query1)
 modelLR <- train(THA_NextDay_Close ~ ., data = training_dataOMITna, method = "lm", 
                  preProcess = c('scale', 'center'))
 modelLR
-# Output: RMSE for your data
 
-# Predict on your validation set
-validation_predictions <- predict(modelLR, newdata = validation_data)
+#Output: RMSE for your data
+#  RMSE       Rsquared   MAE      
+# 0.3216661  0.8173048  0.2490936 
 
-# Calculate RMSE for the validation set
-validation_RMSE <- postResample(pred = validation_predictions, obs = validation_data$THA_NextDay_Close)
-
-# Predict on your test set
-test_predictions <- predict(modelLR, newdata = test_data)
-
-# Calculate RMSE for the test set
-test_RMSE <- postResample(pred = test_predictions, obs = test_data$THA_NextDay_Close)
-
-
-modelLR <- train(THA_NextDay_Close ~ ., data = training_dataOMITna, method = "lm", 
-                 preProcess = 'pca')
-modelLR
-# Output: RMSE for your data
 
 modelLR <- train(THA_NextDay_Close ~ ., data = training_dataOMITna, method = "lm", 
                  preProcess = 'BoxCox')
@@ -252,3 +238,18 @@ modelLR <- train(THA_NextDay_Close ~ ., data = training_dataOMITna, method = "lm
 modelLR
 # Output: RMSE for your data
 
+######################################################################################
+# ERRORS
+# modelLR <- train(THA_NextDay_Close ~ ., data = training_dataOMITna, method = "lm", 
+#                  preProcess = 'pca')
+# modelLR
+# Something is wrong; all the RMSE metric values are missing:
+#   RMSE        Rsquared        MAE     
+# Min.   : NA   Min.   : NA   Min.   : NA  
+# 1st Qu.: NA   1st Qu.: NA   1st Qu.: NA  
+# Median : NA   Median : NA   Median : NA  
+# Mean   :NaN   Mean   :NaN   Mean   :NaN  
+# 3rd Qu.: NA   3rd Qu.: NA   3rd Qu.: NA  
+# Max.   : NA   Max.   : NA   Max.   : NA  
+# NA's   :1     NA's   :1     NA's   :1   
+######################################################################################
