@@ -68,8 +68,8 @@ rownames(Model_Norm) <- NULL
 # Split dataframe into Training, Validation, Testing before normalization
 ######################################################################################
 
-# output Model_Norm to csv
-write.csv(Model_Data, file = "E:\\5-Data Analytics Winter 2024\\DBAS3090 - Applied Data Analytics\\project\\ICE\\ICE 2\\Model_Norm.csv", row.names = FALSE)
+# # output Model_Norm to csv
+# write.csv(Model_Data, file = "E:\\5-Data Analytics Winter 2024\\DBAS3090 - Applied Data Analytics\\project\\ICE\\ICE 2\\Model_Norm.csv", row.names = FALSE)
 
 # Ensure reproducibility
 set.seed(123)
@@ -137,6 +137,16 @@ testing_data[, setdiff(names(testing_data), exclude_columns)] <- lapply(testing_
 rm(normalize)
 rm(exclude_columns)
 
+modelLR <- train(THA_NextDay_Close ~ .,data = training_data, method = "lm", 
+                 preProcess = c('scale', 'center')) # default: no pre-processing
+modelLR
+
+# RMSE     Rsquared  MAE      
+# 1.10558  0.998864  0.7021597
+
+modelRF <- train(THA_NextDay_Close ~ .,data = training_data, method = "rf", 
+                 preProcess = 'knnImpute')
+modelRF
 ######################################################################################
 # Best Models Are: RF and GLM i think?
 ######################################################################################

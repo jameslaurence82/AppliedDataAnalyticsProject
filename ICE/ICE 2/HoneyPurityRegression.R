@@ -1,7 +1,7 @@
 
 
 #Get Data
-honeypurity.data <- read.csv("C://Users//W0038182//OneDrive - Nova Scotia Community College//Classes//Winter2024//Applied data Analytics//ML Example//honey_purity_dataset_AddNulls.csv", stringsAsFactors = TRUE)
+honeypurity.data <- read.csv("E:\\5-Data Analytics Winter 2024\\DBAS3090 - Applied Data Analytics\\Project\\ICE\\ICE 2\\honey_purity_dataset_AddNulls.csv", stringsAsFactors = TRUE)
 
 #Deal with Pollen_analysis as text
 honeypurity.data$Pollen_analysis= as.numeric(factor(honeypurity.data$Pollen_analysis))
