@@ -113,10 +113,10 @@ ON DELETE CASCADE
 ON UPDATE CASCADE;
 GO
 -- Model Result table for metrics using timestamp for best result only??????
-
 -----------------------------------------------
 -- DROP VIEWS
 -----------------------------------------------
+--DROP VIEW [dbo].[vw_IMPORTANCE_RF];
 --DROP VIEW [dbo].[vw_COMBINED_TABLES];
 --DROP VIEW [dbo].[vw_COMBINED_RSI];
 --DROP VIEW [dbo].[vw_COMBINED_OBV];
@@ -912,4 +912,70 @@ CREATE VIEW vw_COMBINED_MODEL AS (
 	vw_COMBINED_RSI RSI ON CT.FK_DT_Date = RSI.FK_DT_Date
     LEFT JOIN 
 	vw_COMBINED_MACD MACD ON CT.FK_DT_Date = MACD.FK_DT_Date
+);
+-- Importance Features Random Forest Model View
+CREATE VIEW vw_IMPORTANCE_RF AS (
+	SELECT FK_DT_Date, 
+	THA_Close,
+	SPI_MACD,
+	FRA_RSI_180,
+	SPI_RSI_7,
+	FRA_RSI_30,
+	THA_High,
+	FRA_MACD,
+	THA_RSI_180,
+	EUR_RSI_7,
+	THA_Low,
+	SPI_MA_90,
+	THA_Volume,
+	FRA_LowerBand,
+	SPI_LowerBand,
+	EUR_UpperBand,
+	SPI_Close,
+	THA_MACD,
+	SPI_EMA26,
+	EUR_RSI_30,
+	SPI_UpperBand,	
+	SPI_Open,
+	EUR_EMA12,
+	SPI_Adj_Close,
+	SPI_MA_30,
+	EUR_RSI_180,
+	SPI_RSI_30,
+	FRA_RSI_7,
+	SPI_OBV,
+	THA_RSI_7,
+	THA_Open,
+	SPI_EMA12,
+	EUR_MA_7,
+	EUR_OBV,
+	EUR_Low,
+	FRA_Adj_Close,
+	THA_OBV,
+	THA_RSI_90,
+	THA_Adj_Close,
+	FRA_MA_90,
+	SPI_RSI_90,
+	EUR_Adj_Close,
+	THA_MA_7,
+	SPI_High,
+	EUR_RSI_90,
+	SPI_MA_7,
+	EUR_Volume,
+	FRA_High,
+	FRA_Close,
+	SPI_SMA,
+	FRA_MA_7,
+	FRA_Volume,
+	EUR_High,
+	EUR_MA_180,
+	FRA_Open,
+	THA_RSI_30,
+	FRA_SMA,
+	THA_UpperBand,
+	FRA_MA_180,
+	THA_EMA12,
+	SPI_RSI_180,
+	THA_NextDay_Close
+FROM vw_COMBINED_MODEL
 );

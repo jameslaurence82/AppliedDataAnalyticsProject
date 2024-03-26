@@ -14,10 +14,16 @@ connStr <- "Driver=SQL Server;Server=MSI;Database=ThalesStockPredictor;trusted_c
 # establish connection
 dbconnection <- odbcDriverConnect(connStr)
 #
-# query each view from sql server
-# this is all the combined tables with y value column
-query1 <- "SELECT * FROM vw_COMBINED_MODEL
+# # query the COMBINED_MODEL View that has all attributes from sql server
+# # this is all the combined tables with y value column
+# query1 <- "SELECT * FROM vw_COMBINED_MODEL
+#           ORDER BY FK_DT_Date desc" # sorted with newest date
+
+# query Random Forest FEATURE IMPORTANCE MODEL vw_IMPORTANCE_RF view from sql server
+query1 <- "SELECT * FROM vw_IMPORTANCE_RF
           ORDER BY FK_DT_Date desc" # sorted with newest date
+
+
 
 # assign the query to r dataframes for modeling
 Model_Data <- sqlQuery(dbconnection, query1)
@@ -46,7 +52,7 @@ Model_Norm <- na.omit(Model_Norm)
 # Reset row names
 rownames(Model_Norm) <- NULL
 
-rm(Model_Data)
+# rm(Model_Data)
 ######################################################################################
 # Split dataframe into Training, Validation, Testing before normalization
 ######################################################################################
@@ -75,61 +81,121 @@ rm(train_prop)
 ######################################################################################
 
 # Register the parallel backend
-registerDoParallel(cores=9)
+registerDoParallel(cores=10)
 
 ######################################################################################
 # Feature Importance - Random Forest
 ######################################################################################
 
-modelRF_importance <- randomForest(THA_NextDay_Close ~ ., data = training_data[1:5186,], trControl = fitControl,)
-
-# Get feature importance
-importance <- importance(modelRF_importance)
-
-# Sort the importance in descending order
-importance_sorted <- sort(importance, decreasing = TRUE, index.return = TRUE)
-
-# Get the names of the sorted features
-feature_names <- rownames(importance)[importance_sorted$ix]
-
-# Combine the names and importance into a data frame
-importance_df <- data.frame(Feature = feature_names, Importance = importance_sorted$x)
-
-# Print the data frame
-options(scipen = 999)  # This will disable scientific notation
-print(importance_df)
-
-######################################################################################
-# Feature Importance - Random Forest Model Training
-######################################################################################
+# modelRF_importance <- randomForest(THA_NextDay_Close ~ ., data = training_data[1:5186,], importance = TRUE, trControl = fitControl)
+# 
+# # Get feature importance
+# importance <- importance(modelRF_importance)
+# 
+# data <- data.frame(varImp(modelRF_importance, scale = TRUE))
+# 
+# importance_sort <- sort()
+# 
+# # Sort the importance in descending order
+# rf_importance_sort <- sort(rf_importance, decreasing = TRUE)
+# 
+# # Get the names of the sorted features
+# feature_names <- rownames(importance_with_indices)[importance_sorted$ix]
+# 
+# # Combine the names and importance into a data frame
+# importance_df <- data.frame(Feature = feature_names, Importance = importance_sorted$x)
+# 
+# # Print the data frame
+# options(scipen = 999)  # This will disable scientific notation
+# print(importance_df)
 
 # Filter the features with importance above 60
-important_features <- importance_df$Feature[importance_df$Importance > 60]
+# important_features <- importance_df$Feature[importance_df$Importance > 60]
 
-# Create a new training dataset with only the important features
-train_x <- training_data[important_features]
-
-# Add the target variable to the new training dataset
-train_x$THA_NextDay_Close <- training_data$THA_NextDay_Close
+######################################################################################
+# Random Forest Model Training using Feature Importance view vw_IMPORTANCE_RF 
+######################################################################################
 
 fitControl <- trainControl(method = "repeatedcv", 
                            number = 10,     # number of folds
                            repeats = 10)
 
-modelRF.cv <- train(THA_NextDay_Close ~ ., data = train_x, method = "rf", trControl = fitControl)
+modelRF.cv <- train(THA_NextDay_Close ~., data = training_data[1:5186,], method = "rf", trControl = fitControl)
 
 modelRF.cv
 # mtry  RMSE      Rsquared   MAE      
-#  2    1.052131  0.9989709  0.6721646
-# 31    1.097282  0.9988783  0.6959071
-# 60    1.106284  0.9988601  0.7038500
+# 2    1.078374  0.9989217  0.6947723
+# 31    1.099065  0.9988744  0.6987653
+# 61    1.108354  0.9988555  0.7071473
+
+fitControl1 <- trainControl(method = "repeatedcv", 
+                           number = 15,     # number of folds
+                           repeats = 15)
+
+modelRF1.cv <- train(THA_NextDay_Close ~., data = training_data[1:5186,], method = "rf", trControl = fitControl)
+
+rm(modelRF1.cv)
+
+# mtry  RMSE      Rsquared   MAE      
+# 2    1.080848  0.9989169  0.6954043
+# 31    1.097844  0.9988764  0.6977139
+# 61    1.106552  0.9988588  0.7055460
+
+fitControl2 <- trainControl(method = "repeatedcv", 
+                            number = 15,     # number of folds
+                            repeats = 10)
+
+modelRF2.cv <- train(THA_NextDay_Close ~., data = training_data[1:5186,], method = "rf", trControl = fitControl)
+rm(modelRF2.cv)
+modelRF2.cv
+# mtry  RMSE      Rsquared   MAE      
+# 2    1.077814  0.9989220  0.6933179
+# 31    1.098482  0.9988741  0.6972192
+# 61    1.107597  0.9988555  0.7054244
+
+fitControl <- trainControl(method = "repeatedcv", 
+                           number = 10,     # number of folds
+                           repeats = 10)
+rm(tuneGrid)
+tuneGrid <- expand.grid(.mtry = c(10, 20, 30)) 
+
+modelRF.cv <- train(THA_NextDay_Close ~., data = training_data[1:5186,], method = "rf", trControl = fitControl, tuneGrid = tuneGrid, metric = "RMSE", ntree=500)
+
+modelRF.cv
+# 
+# mtry  RMSE      Rsquared   MAE      
+# 10    1.070452  0.9989274  0.6784740
+# 20    1.090147  0.9988879  0.6920435
+# 30    1.097247  0.9988739  0.6978337
+
+modelRF3.cv <- train(THA_NextDay_Close ~., data = training_data[1:5186,], 
+                    method = "rf", trControl = fitControl, 
+                    metric = "RMSE", ntree=1000)
+
+modelRF3.cv
+
+# mtry  RMSE      Rsquared   MAE      
+# 2    1.075296  0.9989255  0.6928574
+# 31    1.097846  0.9988734  0.6986351
+# 61    1.107162  0.9988546  0.7072652
+
+modelRF4.cv <- train(THA_NextDay_Close ~., data = training_data[1:5186,], 
+                     method = "rf", trControl = fitControl, 
+                     metric = "RMSE", ntree=2000)
+
+modelRF4.cv
+# mtry  RMSE      Rsquared   MAE      
+# 2    1.074143  0.9989306  0.6921641
+# 31    1.099173  0.9988747  0.6976261
+# 61    1.108573  0.9988557  0.7055408
 
 ######################################################################################
 # compare unseen Test data Random Forest
 ######################################################################################
 
+##### RANDOM FOREST MODEL 3 ####
 # Create a new testing dataset with only the important features
-test_x <- testing_data[important_features]
+test_x <- testing_data
 
 # Define test_y
 test_y <- testing_data$THA_NextDay_Close
@@ -141,32 +207,72 @@ pred_y = predict(modelRF.cv, test_x)
 # Performance metrics on the test data
 caret::RMSE(test_y, pred_y) # RMSE - Root Mean Squared Error
 
-
 # TEST RSME
-# [1] 1.012785
+# [1] 1.071261
 ##############
 
 pred= cbind.data.frame(test_y,pred_y)
 pred
 # Last Rows in console
 #        test_y    pred_y
-# 4754  30.58000  29.73852
-# 4782  28.71000  29.27385
-# 4783  29.13000  29.28360
-# 4811  26.09000  26.62205
-# 4824  26.16000  26.16478
-# 4834  24.72000  25.20768
-# 4838  25.71000  25.50832
-# 4842  24.89000  24.97314
-# 4852  24.65000  24.54762
-# 4854  24.70000  24.60044
-# 4865  24.00000  24.55215
-# 4866  24.30000  25.02568
-# 4881  26.85000  26.37367
-# 4892  27.68000  27.06381
-# 4905  26.87000  27.42953
-# 4920  27.05000  26.47123
-# 4921  25.72000  25.56448
+
+##### RANDOM FOREST MODEL 3 ####
+# Create a new testing dataset with only the important features
+test_x <- testing_data
+
+# Define test_y
+test_y <- testing_data$THA_NextDay_Close
+
+# Use model to make predictions on test data
+pred_y = predict(modelRF3.cv, test_x)
+
+# Test Performance
+# Performance metrics on the test data
+caret::RMSE(test_y, pred_y) # RMSE - Root Mean Squared Error
+
+
+# TEST RSME
+# [1] 1.025251
+##############
+
+pred= cbind.data.frame(test_y,pred_y)
+pred
+# Last Rows in console
+#        test_y    pred_y
+# 4866  24.30000  24.92666
+# 4881  26.85000  26.37806
+# 4892  27.68000  27.06222
+# 4905  26.87000  27.40158
+# 4920  27.05000  26.49570
+
+##### RANDOM FOREST MODEL 4 ####
+# Create a new testing dataset with only the important features
+test_x <- testing_data
+
+# Define test_y
+test_y <- testing_data$THA_NextDay_Close
+
+# Use model to make predictions on test data
+pred_y = predict(modelRF4.cv, test_x)
+
+# Test Performance
+# Performance metrics on the test data
+caret::RMSE(test_y, pred_y) # RMSE - Root Mean Squared Error
+
+
+# TEST RSME
+# [1] 1.023909
+##############
+
+pred= cbind.data.frame(test_y,pred_y)
+pred
+# Last Rows in console
+#        test_y    pred_y
+# 4866  24.30000  24.96480
+# 4881  26.85000  26.38047
+# 4892  27.68000  27.03916
+# 4905  26.87000  27.37856
+# 4920  27.05000  26.52013
 
 ######################################################################################
 # Stop Additional Core Use
@@ -179,7 +285,7 @@ stopImplicitCluster()
 # Save the best model --> RandomForest Using Feature Importance
 ######################################################################################
 
-saveRDS(modelRF.cv, "E:\\5-Data Analytics Winter 2024\\DBAS3090 - Applied Data Analytics\\Project\\ICE\\ICE 2\\rfModel.rds")
+saveRDS(modelRF4.cv, "E:\\5-Data Analytics Winter 2024\\DBAS3090 - Applied Data Analytics\\Project\\ICE\\ICE 2\\rfModel.rds")
 
 ######################################################################################
 # loading Saved Model for Predictions --> RandomForest Using Feature Importance
@@ -195,15 +301,30 @@ pred_y = predict(savedRF_Model, test_x)
 caret::RMSE(test_y, pred_y) #rmse - Root Mean Squared Error
 
 # RSME
-# [1] 1.012785
+# [1] 1.023909
 
 # Predictions from Saved Model File
 pred= cbind.data.frame(test_y,pred_y)
 pred
 # Last Rows in console
-# 4866  24.30000  25.02568
-# 4881  26.85000  26.37367
-# 4892  27.68000  27.06381
-# 4905  26.87000  27.42953
-# 4920  27.05000  26.47123
-# 4921  25.72000  25.56448
+#        test_y    pred_y
+# 4866  24.30000  24.96480
+# 4881  26.85000  26.38047
+# 4892  27.68000  27.03916
+# 4905  26.87000  27.37856
+# 4920  27.05000  26.52013
+# 4921  25.72000  25.58692
+
+######################################################################################
+# Extract the optimal parameters and RMSE
+######################################################################################
+# 
+# optimal_mtry <- modelRF.cv$bestTune$mtry
+# optimal_ntree <- modelRF.cv$bestTune$ntree
+# optimal_rmse <- min(modelRF.cv$results$RMSE)
+# 
+# # Create a data frame
+# df <- data.frame(mtry = optimal_mtry, ntree = optimal_ntree, RMSE = optimal_rmse)
+# 
+# # Write the data frame to a SQL table
+# dbWriteTable(con, "model_performance", df, append = TRUE)
